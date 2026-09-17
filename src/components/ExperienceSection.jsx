@@ -5,11 +5,11 @@ export default function ExperienceSection({ experience }) {
   if (!experience || !Array.isArray(experience) || experience.length === 0) return null;
 
   return (
-    <section id="experience" className="py-24 relative z-10 px-4 sm:px-6 lg:px-8">
+    <section id="experience" className="py-14 sm:py-16 relative z-10 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
         
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16">
+        <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-12">
           <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-cyan-950/70 border border-cyan-500/30 text-xs font-mono text-higgs-cyan mb-4">
             <Briefcase className="w-3.5 h-3.5 text-higgs-cyan" />
             <span>OPERATIONAL TIMELINE & IMPACT</span>

@@ -7,19 +7,19 @@ export default function StatsSection({ stats }) {
   if (!stats || !Array.isArray(stats) || stats.length === 0) return null;
 
   return (
-    <section id="stats" className="py-16 relative z-10 px-4 sm:px-6 lg:px-8">
+    <section id="stats" className="pt-2 pb-14 relative z-10 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
         
         {/* Section Header */}
         <div className="flex items-center justify-between mb-8 pb-3 border-b border-cyan-500/20">
           <div className="flex items-center gap-2">
             <Activity className="w-4 h-4 text-higgs-cyan animate-pulse" />
-            <span className="text-xs font-mono tracking-widest text-higgs-cyan uppercase">
-              // TELEMETRY & SYSTEM GAUGES
+            <span className="text-xs font-mono font-semibold tracking-widest text-higgs-cyan uppercase">
+              Key Metrics & Impact
             </span>
           </div>
           <span className="text-[11px] font-mono text-slate-400">
-            METRICS: LIVE SYNCHRONIZATION
+            Proven Track Record
           </span>
         </div>
 
@@ -33,8 +33,8 @@ export default function StatsSection({ stats }) {
                 className="glass-panel p-5 rounded-2xl border-cyan-500/20 hover:border-cyan-400/60 glass-card-interactive group flex flex-col justify-between"
               >
                 <div className="flex items-center justify-between mb-3">
-                  <span className="text-[10px] font-mono text-cyan-400/80 bg-cyan-950/60 px-2 py-0.5 rounded border border-cyan-500/20">
-                    G-{idx + 1}
+                  <span className="text-[10px] font-mono text-cyan-300 bg-cyan-950/60 px-2 py-0.5 rounded border border-cyan-500/20">
+                    Impact
                   </span>
                   <Icon className="w-4 h-4 text-slate-400 group-hover:text-higgs-cyan transition-colors" />
                 </div>

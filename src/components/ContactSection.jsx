@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Mail, Phone, MapPin, Send, CheckCircle2, AlertCircle, Sparkles, Terminal, Linkedin, Github } from 'lucide-react';
+import { Mail, Phone, MapPin, Send, CheckCircle2, AlertCircle, Sparkles, MessageSquare, Linkedin, Github } from 'lucide-react';
 import confetti from 'canvas-confetti';
 
 const socialIcons = {
@@ -29,12 +29,12 @@ export default function ContactSection({ contact, social }) {
     e.preventDefault();
     if (!formData.name || !formData.email || !formData.message) {
       setStatus('error');
-      setStatusMessage('Please fill in all mandatory quantum telemetry vectors.');
+      setStatusMessage('Please fill in all required fields.');
       return;
     }
 
     setStatus('transmitting');
-    setStatusMessage('Transmitting wavepacket via Google Apps Script Node...');
+    setStatusMessage('Sending your message...');
 
     try {
       if (contact.googleScriptUrl) {
@@ -53,7 +53,7 @@ export default function ContactSection({ contact, social }) {
       }
 
       setStatus('sent');
-      setStatusMessage('Transmission Received & Entangled. I will respond swiftly.');
+      setStatusMessage('Message sent successfully! I will get back to you soon.');
       confetti({
         particleCount: 100,
         spread: 70,
@@ -62,30 +62,30 @@ export default function ContactSection({ contact, social }) {
       });
       setFormData({ name: '', email: '', subject: '', message: '' });
     } catch (err) {
-      console.error('Submission failed:', err);
+      console.error('Submission error:', err);
       // Fallback to mailto
       window.location.href = `mailto:${contact.email}?subject=${encodeURIComponent(
-        formData.subject || 'Portfolio Handshake'
+        formData.subject || 'Portfolio Inquiry'
       )}&body=${encodeURIComponent(
         `Name: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`
       )}`;
       setStatus('sent');
-      setStatusMessage('Fallback mailer invoked. Check your default email client.');
+      setStatusMessage('Opening default email client...');
     }
   };
 
   return (
-    <section id="contact" className="py-24 relative z-10 px-4 sm:px-6 lg:px-8">
+    <section id="contact" className="py-14 sm:py-16 relative z-10 px-4 sm:px-6 lg:px-8">
       <div className="max-w-6xl mx-auto">
         
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16">
+        <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-12">
           <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-cyan-950/70 border border-cyan-500/30 text-xs font-mono text-higgs-cyan mb-4">
-            <Terminal className="w-3.5 h-3.5 text-higgs-cyan" />
-            <span>COMMUNICATION FREQUENCY</span>
+            <MessageSquare className="w-3.5 h-3.5 text-higgs-cyan" />
+            <span>Contact</span>
           </div>
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-bold text-white leading-tight">
-            {contact.title || 'Initialize Quantum Handshake'}
+            {contact.title || "Let's Connect"}
           </h2>
           {contact.subtitle && (
             <p className="mt-3 text-slate-300 font-light text-base">
@@ -99,9 +99,9 @@ export default function ContactSection({ contact, social }) {
           {/* Left: Contact Coordinates & Social Matrix (5 cols) */}
           <div className="lg:col-span-5 space-y-6">
             <div className="glass-panel p-6 sm:p-8 rounded-3xl border-cyan-500/20 space-y-6">
-              <h3 className="text-sm font-mono uppercase tracking-widest text-higgs-cyan flex items-center gap-2">
+              <h3 className="text-sm font-mono uppercase tracking-widest text-higgs-cyan flex items-center gap-2 font-semibold">
                 <Sparkles className="w-4 h-4" />
-                <span>DIRECT COORDINATES</span>
+                <span>Contact Details</span>
               </h3>
 
               <div className="space-y-4">
@@ -114,7 +114,7 @@ export default function ContactSection({ contact, social }) {
                       <Mail className="w-5 h-5" />
                     </div>
                     <div>
-                      <div className="text-xs font-mono text-slate-400">Electronic Mail</div>
+                      <div className="text-xs font-mono text-slate-400">Email Address</div>
                       <div className="text-sm font-mono font-medium text-white group-hover:text-higgs-cyan transition-colors">
                         {contact.email}
                       </div>
@@ -131,7 +131,7 @@ export default function ContactSection({ contact, social }) {
                       <Phone className="w-5 h-5" />
                     </div>
                     <div>
-                      <div className="text-xs font-mono text-slate-400">Voice / Signal</div>
+                      <div className="text-xs font-mono text-slate-400">Phone Number</div>
                       <div className="text-sm font-mono font-medium text-white group-hover:text-higgs-cyan transition-colors">
                         {contact.phone}
                       </div>
@@ -145,7 +145,7 @@ export default function ContactSection({ contact, social }) {
                       <MapPin className="w-5 h-5" />
                     </div>
                     <div>
-                      <div className="text-xs font-mono text-slate-400">Base Location</div>
+                      <div className="text-xs font-mono text-slate-400">Location</div>
                       <div className="text-sm font-mono font-medium text-white">
                         {contact.location}
                       </div>
@@ -158,7 +158,7 @@ export default function ContactSection({ contact, social }) {
               {social && Array.isArray(social) && social.length > 0 && (
                 <div className="pt-4 border-t border-cyan-500/15">
                   <div className="text-xs font-mono text-slate-400 uppercase tracking-wider mb-3">
-                    ENTANGLED PROFILES
+                    Profiles & Social
                   </div>
                   <div className="flex flex-wrap gap-2">
                     {social.map((s, idx) => {
@@ -182,25 +182,25 @@ export default function ContactSection({ contact, social }) {
             </div>
           </div>
 
-          {/* Right: Quantum Transmission Terminal Form (7 cols) */}
+          {/* Right: Contact Form (7 cols) */}
           <div className="lg:col-span-7">
             <form
               onSubmit={handleSubmit}
               className="glass-panel-glow p-6 sm:p-8 rounded-3xl border-cyan-500/30 space-y-4 shadow-2xl"
             >
               <div className="flex items-center justify-between pb-3 border-b border-cyan-500/20">
-                <span className="text-xs font-mono text-higgs-cyan font-bold">
-                  SIGNAL DISPATCH TERMINAL
+                <span className="text-xs font-mono text-higgs-cyan font-bold uppercase tracking-wider">
+                  Send a Message
                 </span>
-                <span className="text-[10px] font-mono text-emerald-400 bg-emerald-950/60 px-2 py-0.5 rounded border border-emerald-500/30">
-                  {contact.status || 'ENCRYPTED 256-BIT'}
+                <span className="text-[10px] font-mono text-emerald-400 bg-emerald-950/60 px-2.5 py-0.5 rounded border border-emerald-500/30">
+                  {contact.status || 'Active'}
                 </span>
               </div>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
                   <label className="block text-xs font-mono text-slate-300 mb-1">
-                    Your Name / Organization <span className="text-higgs-cyan">*</span>
+                    Your Name <span className="text-higgs-cyan">*</span>
                   </label>
                   <input
                     type="text"
@@ -208,14 +208,14 @@ export default function ContactSection({ contact, social }) {
                     value={formData.name}
                     onChange={handleChange}
                     required
-                    placeholder="e.g. Alex Morgan"
+                    placeholder="e.g. John Doe"
                     className="w-full px-4 py-3 rounded-xl bg-quantum-surface/90 border border-cyan-500/25 text-white font-mono text-xs sm:text-sm focus:outline-none focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400 transition-all placeholder:text-slate-600"
                   />
                 </div>
 
                 <div>
                   <label className="block text-xs font-mono text-slate-300 mb-1">
-                    Return Email Channel <span className="text-higgs-cyan">*</span>
+                    Your Email <span className="text-higgs-cyan">*</span>
                   </label>
                   <input
                     type="email"
@@ -223,7 +223,7 @@ export default function ContactSection({ contact, social }) {
                     value={formData.email}
                     onChange={handleChange}
                     required
-                    placeholder="e.g. alex@company.com"
+                    placeholder="e.g. john@example.com"
                     className="w-full px-4 py-3 rounded-xl bg-quantum-surface/90 border border-cyan-500/25 text-white font-mono text-xs sm:text-sm focus:outline-none focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400 transition-all placeholder:text-slate-600"
                   />
                 </div>
@@ -231,21 +231,21 @@ export default function ContactSection({ contact, social }) {
 
               <div>
                 <label className="block text-xs font-mono text-slate-300 mb-1">
-                  Inquiry Vector / Subject
+                  Subject
                 </label>
                 <input
                   type="text"
                   name="subject"
                   value={formData.subject}
                   onChange={handleChange}
-                  placeholder="e.g. DevOps Architecture Opportunity"
+                  placeholder="e.g. DevOps Engineer Opportunity"
                   className="w-full px-4 py-3 rounded-xl bg-quantum-surface/90 border border-cyan-500/25 text-white font-mono text-xs sm:text-sm focus:outline-none focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400 transition-all placeholder:text-slate-600"
                 />
               </div>
 
               <div>
                 <label className="block text-xs font-mono text-slate-300 mb-1">
-                  Message Payload <span className="text-higgs-cyan">*</span>
+                  Message <span className="text-higgs-cyan">*</span>
                 </label>
                 <textarea
                   name="message"
@@ -253,7 +253,7 @@ export default function ContactSection({ contact, social }) {
                   value={formData.message}
                   onChange={handleChange}
                   required
-                  placeholder="Describe project requirements, tech stack details, or schedule a discussion..."
+                  placeholder="Type your message here..."
                   className="w-full px-4 py-3 rounded-xl bg-quantum-surface/90 border border-cyan-500/25 text-white font-mono text-xs sm:text-sm focus:outline-none focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400 transition-all placeholder:text-slate-600 resize-none"
                 />
               </div>
@@ -283,7 +283,7 @@ export default function ContactSection({ contact, social }) {
               >
                 <Send className="w-4 h-4" />
                 <span>
-                  {status === 'transmitting' ? 'DISPATCHING PACKET...' : 'TRANSMIT WAVEFORM'}
+                  {status === 'transmitting' ? 'Sending Message...' : 'Send Message'}
                 </span>
               </button>
             </form>

@@ -17,11 +17,11 @@ export default function SkillsSection({ skills }) {
   const [activeTab, setActiveTab] = useState(skills.categories[0]?.id || 'all');
 
   return (
-    <section id="skills" className="py-24 relative z-10 px-4 sm:px-6 lg:px-8">
+    <section id="skills" className="py-14 sm:py-16 relative z-10 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
         
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16">
+        <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-12">
           <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-purple-950/70 border border-purple-500/30 text-xs font-mono text-purple-300 mb-4">
             <Cpu className="w-3.5 h-3.5 text-purple-400" />
             <span>{skills.sectionTag || 'ENTANGLED OPERATIONAL MATRIX'}</span>

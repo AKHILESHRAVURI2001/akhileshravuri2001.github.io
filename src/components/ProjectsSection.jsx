@@ -26,11 +26,11 @@ export default function ProjectsSection({ projects }) {
   }, [projects, selectedCategory]);
 
   return (
-    <section id="projects" className="py-24 relative z-10 px-4 sm:px-6 lg:px-8">
+    <section id="projects" className="py-14 sm:py-16 relative z-10 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
         
         {/* Section Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-8 sm:mb-10">
           <div>
             <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-cyan-950/70 border border-cyan-500/30 text-xs font-mono text-higgs-cyan mb-4">
               <Layers className="w-3.5 h-3.5 text-higgs-cyan" />

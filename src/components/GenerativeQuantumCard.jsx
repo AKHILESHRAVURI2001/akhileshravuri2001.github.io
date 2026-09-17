@@ -187,29 +187,29 @@ export default function GenerativeQuantumCard({
         className="w-full h-full block cursor-crosshair transition-transform duration-500 group-hover:scale-105"
       />
 
-      {/* Top HUD Badges */}
+      {/* Top Badges */}
       <div className="absolute top-3 left-3 right-3 flex items-center justify-between pointer-events-none">
-        <div className="flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-quantum-dark/80 backdrop-blur-md border border-cyan-500/30 text-[11px] font-mono text-higgs-cyan">
-          <Radio className="w-3 h-3 animate-pulse text-higgs-cyan" />
-          <span>{energyFrequency}</span>
+        <div className="flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-quantum-dark/85 backdrop-blur-md border border-cyan-500/30 text-[11px] font-mono text-higgs-cyan">
+          <Sparkles className="w-3 h-3 text-higgs-cyan" />
+          <span>{category || 'Featured Architecture'}</span>
         </div>
 
-        <div className="flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-quantum-dark/80 backdrop-blur-md border border-purple-500/30 text-[10px] font-mono text-purple-300">
+        <div className="flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-quantum-dark/85 backdrop-blur-md border border-purple-500/30 text-[10px] font-mono text-purple-300">
           <Cpu className="w-3 h-3 text-purple-400" />
-          <span>{quantumHash}</span>
+          <span>Interactive Model</span>
         </div>
       </div>
 
-      {/* Bottom Telemetry Strip */}
+      {/* Bottom Status Strip */}
       <div className="absolute bottom-0 inset-x-0 p-3 bg-gradient-to-t from-quantum-dark via-quantum-dark/90 to-transparent flex items-center justify-between pointer-events-none">
         <div className="flex items-center gap-2">
-          <Sparkles className="w-3.5 h-3.5 text-higgs-cyan animate-pulse" />
-          <span className="text-[11px] font-mono text-slate-300 tracking-wider">
-            HIGGS DENSITY: <strong className="text-white">OPTIMAL</strong>
+          <span className="w-2 h-2 rounded-full bg-higgs-cyan animate-ping inline-block" />
+          <span className="text-[11px] font-mono text-slate-300">
+            {title || 'Production System'}
           </span>
         </div>
         <div className="text-[10px] font-mono text-emerald-400 bg-emerald-950/60 px-2 py-0.5 rounded border border-emerald-500/30">
-          |ψ|² = 0.99
+          Active
         </div>
       </div>
     </div>

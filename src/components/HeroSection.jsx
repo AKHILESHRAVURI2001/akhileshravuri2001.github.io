@@ -16,7 +16,7 @@ export default function HeroSection({ hero, profile }) {
   }, [roles.length]);
 
   return (
-    <section id="hero" className="relative min-h-screen pt-32 pb-20 flex flex-col justify-center items-center px-4 sm:px-6 lg:px-8">
+    <section id="hero" className="relative pt-28 pb-8 sm:pt-32 sm:pb-12 flex flex-col justify-center items-center px-4 sm:px-6 lg:px-8">
       <div className="max-w-5xl mx-auto text-center relative z-10">
         
         {/* Holographic Status Pill */}
