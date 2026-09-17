@@ -1,0 +1,121 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --higgs-cyan: #00f5ff;
+    --quantum-purple: #a855f7;
+    --quantum-emerald: #10b981;
+    --quantum-dark: #030712;
+  }
+
+  html {
+    color-scheme: dark;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: #030712;
+    color: #f1f5f9;
+    font-family: 'Space Grotesk', system-ui, sans-serif;
+    overflow-x: hidden;
+  }
+
+  /* Custom high-tech scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #030712;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, #00f5ff, #a855f7);
+    border-radius: 3px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #00f5ff;
+  }
+}
+
+/* Glassmorphism & Cyber Quantum HUD styling */
+.glass-panel {
+  background: rgba(7, 13, 30, 0.65);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(56, 189, 248, 0.18);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.45);
+}
+
+.glass-panel-glow {
+  background: rgba(11, 19, 41, 0.75);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(0, 245, 255, 0.3);
+  box-shadow: 0 0 25px -5px rgba(0, 245, 255, 0.25), inset 0 0 15px rgba(0, 245, 255, 0.05);
+}
+
+.glass-panel-purple {
+  background: rgba(15, 10, 30, 0.75);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(168, 85, 247, 0.3);
+  box-shadow: 0 0 25px -5px rgba(168, 85, 247, 0.25), inset 0 0 15px rgba(168, 85, 247, 0.05);
+}
+
+.glass-card-interactive {
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.glass-card-interactive:hover {
+  transform: translateY(-4px) scale(1.01);
+  border-color: rgba(0, 245, 255, 0.5);
+  box-shadow: 0 12px 30px -10px rgba(0, 245, 255, 0.35);
+}
+
+/* Cyber Grid Background Pattern */
+.bg-cyber-grid {
+  background-size: 40px 40px;
+  background-image: 
+    linear-gradient(to right, rgba(56, 189, 248, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(56, 189, 248, 0.05) 1px, transparent 1px);
+}
+
+.bg-radial-vignette {
+  background: radial-gradient(circle at 50% 50%, rgba(3, 7, 18, 0.2) 0%, rgba(3, 7, 18, 0.92) 100%);
+}
+
+/* Holographic text glow */
+.text-glow-cyan {
+  text-shadow: 0 0 12px rgba(0, 245, 255, 0.6), 0 0 24px rgba(0, 245, 255, 0.3);
+}
+
+.text-glow-purple {
+  text-shadow: 0 0 12px rgba(168, 85, 247, 0.6), 0 0 24px rgba(168, 85, 247, 0.3);
+}
+
+/* Scanline Overlay */
+.scanlines {
+  position: relative;
+  overflow: hidden;
+}
+.scanlines::after {
+  content: " ";
+  display: block;
+  position: absolute;
+  top: 0; left: 0; bottom: 0; right: 0;
+  background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%);
+  background-size: 100% 4px;
+  z-index: 2;
+  pointer-events: none;
+  opacity: 0.4;
+}
+
+@keyframes scanlineAnim {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(1000%); }
+}
+
+.animate-scanline-bar {
+  animation: scanlineAnim 6s linear infinite;
+}

@@ -1,0 +1,333 @@
+{
+  "profile": {
+    "name": "Akhilesh Ravuri",
+    "firstName": "Akhilesh",
+    "shortName": "Akhilesh Ravuri",
+    "title": "DevOps Engineer & Software Developer",
+    "tagline": "Architecting Zero-Downtime Clouds & Resilient Systems",
+    "subtitle": "Specializing in AWS cloud infrastructure, Kubernetes orchestration, Terraform automation, and high-performance full-stack systems with 4+ years of production experience.",
+    "bio": "DevOps and Software Engineer with 4+ years building and operating CI/CD pipelines, AWS cloud infrastructure, and full-stack applications. Hands-on with Docker, Kubernetes, Jenkins, Terraform, and Ansible to deliver reliable, repeatable deployments — including cutting environment setup time by 80% through Terraform automation. Strong Python and PHP background across the LAMP stack, bridging development and operations to ship features and infrastructure changes with zero disruption.",
+    "email": "akhileshravuri2001@gmail.com",
+    "phone": "+91 7095643856",
+    "location": "Bengaluru, Karnataka, India",
+    "yearsExperience": "4+",
+    "availableForWork": true,
+    "statusBadge": "Higgs Coupling: Active // Open for Senior DevOps & Full Stack Roles",
+    "roles": [
+      "Senior DevOps Engineer",
+      "Cloud Infrastructure Architect",
+      "Full-Stack Web Developer",
+      "Kubernetes & CI/CD Specialist"
+    ]
+  },
+  "hero": {
+    "badge": "QUANTUM SYSTEMS // ZERO-POINT OBSERVABILITY",
+    "headlinePrefix": "Engineering",
+    "headlineHighlight": "Mass & Scalability",
+    "headlineSuffix": "Across Distributed Clouds",
+    "description": "Orchestrating hyperscale cloud topologies, automated CI/CD acceleration, and microservice containerization. Infusing infrastructure with quantum-grade resilience.",
+    "ctaPrimary": {
+      "label": "Explore Quantum Grid",
+      "href": "#projects"
+    },
+    "ctaSecondary": {
+      "label": "Contact Station",
+      "href": "#contact"
+    },
+    "resumeCta": {
+      "label": "Download CV",
+      "href": "https://github.com/AKHILESHRAVURI2001"
+    },
+    "techStack": [
+      { "name": "AWS", "category": "Cloud", "color": "#FF9900" },
+      { "name": "Kubernetes", "category": "Orchestration", "color": "#326CE5" },
+      { "name": "Docker", "category": "Containers", "color": "#2496ED" },
+      { "name": "Terraform", "category": "IaC", "color": "#844FBA" },
+      { "name": "Jenkins", "category": "CI/CD", "color": "#D24939" },
+      { "name": "Ansible", "category": "Automation", "color": "#EE0000" },
+      { "name": "Prometheus", "category": "Metrics", "color": "#E6522C" },
+      { "name": "Grafana", "category": "Observability", "color": "#F46800" },
+      { "name": "Python", "category": "Backend", "color": "#3776AB" },
+      { "name": "React.js", "category": "Frontend", "color": "#61DAFB" },
+      { "name": "Node.js", "category": "Runtime", "color": "#68A063" },
+      { "name": "PHP", "category": "Backend", "color": "#777BB4" },
+      { "name": "MySQL", "category": "Database", "color": "#4479A1" },
+      { "name": "SonarQube", "category": "Quality", "color": "#4B9BE1" },
+      { "name": "Linux", "category": "OS", "color": "#FCC624" }
+    ]
+  },
+  "stats": [
+    { "id": "stat-1", "value": 4, "suffix": "+", "label": "Years in Production", "sublabel": "Continuous Delivery & Scaling" },
+    { "id": "stat-2", "value": 80, "suffix": "%", "label": "Faster Provisioning", "sublabel": "Terraform IaC Automation" },
+    { "id": "stat-3", "value": 90, "suffix": "%", "label": "Query Accuracy Boost", "sublabel": "Validation Engine Optimization" },
+    { "id": "stat-4", "value": 3, "suffix": " Env", "label": "AWS Ecosystems", "sublabel": "Staging, UAT & Production" },
+    { "id": "stat-5", "value": 10, "suffix": "+", "label": "Cloud Initiatives", "sublabel": "Monolith to Microservices" },
+    { "id": "stat-6", "value": 99.9, "suffix": "%", "label": "Uptime Maintained", "sublabel": "Prometheus & Grafana Alerting" }
+  ],
+  "about": {
+    "sectionTag": "QUANTUM STATE MATRIX",
+    "title": "Where Infrastructure Meets Application Code",
+    "summary": "Bridging the gap between distributed infrastructure engineering and resilient application design. Specializing in high-availability AWS deployments, microservice orchestration on Kubernetes, automated testing pipelines, and backend system optimization.",
+    "paragraphs": [
+      "I manage enterprise-scale AWS environments end-to-end — from provisioning multi-region infrastructure with Terraform and Ansible to managing containerized microservices in Kubernetes clusters and ensuring round-the-clock reliability via Prometheus and Grafana dashboards.",
+      "On the development front, I build backend services and high-throughput data processing engines with PHP, Python, and MySQL on Linux, alongside modern UI components using React.js and Node.js with AI-assisted delivery workflows.",
+      "My core philosophy: Make production deployments repeatable, predictable, and resilient against any scale of operational entropy."
+    ],
+    "traits": [
+      { "title": "Systems Thinking", "desc": "Holistic architectural modeling from hardware/cloud layers to client-side renders.", "icon": "Cpu" },
+      { "title": "Automation-First", "desc": "Zero manual toil — automating CI/CD, cluster scaling, and infrastructure drift repair.", "icon": "Terminal" },
+      { "title": "High Reliability", "desc": "Proactive observability, health probes, automated failover, and strict code quality gates.", "icon": "ShieldCheck" },
+      { "title": "Entangled Collaboration", "desc": "Bridging DevOps, backend, and frontend teams to maintain continuous high velocity.", "icon": "Network" }
+    ]
+  },
+  "experience": [
+    {
+      "company": "TriByte Technologies Private Limited",
+      "role": "Software Developer – DevOps & Web Development",
+      "location": "Bengaluru, Karnataka, India",
+      "period": "Sep 2022 – Present",
+      "current": true,
+      "badge": "Active Mission",
+      "summary": "Full ownership of multi-environment AWS infrastructure, end-to-end CI/CD pipelines, and microservices containerization while delivering backend query engines and web applications.",
+      "responsibilities": [
+        "Built and maintained automated CI/CD pipelines using Jenkins integrated with Azure DevOps Repos and SonarQube for automated code quality gating, drastically reducing failed production deployments.",
+        "Operated AWS cloud environments (Staging, UAT, Production) utilizing EC2, S3, RDS, VPC, ECS, Lambda, SQS, CloudFront, and CloudWatch with strict security and high availability.",
+        "Automated staging deployment workflows using Jenkins, Ansible playbooks, and Python scripts, eliminating manual release overhead.",
+        "Deployed and managed containerized microservices in UAT using Docker and Kubernetes on AWS, orchestrating ingress, autoscaling, and service discovery.",
+        "Set up comprehensive production monitoring using Prometheus and Grafana dashboards, maintaining 99.9% uptime with automated threshold alerting.",
+        "Provisioned multi-tier infrastructure for new client environments via Terraform IaC, slashing environment setup time by 80%.",
+        "Engineered query validation and correction algorithms for backend PHP/MySQL engines, improving system accuracy by 90%.",
+        "Drove legacy monolith-to-microservices migration, containerizing core services with zero customer-facing downtime during cutover.",
+        "Engineered and maintained backend APIs and web infrastructure on Apache LAMP stack alongside rapid React.js/Node.js feature development."
+      ],
+      "technologies": [
+        "AWS (EC2, S3, RDS, VPC, ECS, Lambda)",
+        "Kubernetes",
+        "Docker",
+        "Terraform",
+        "Ansible",
+        "Jenkins",
+        "Azure Repos",
+        "SonarQube",
+        "Prometheus",
+        "Grafana",
+        "Python",
+        "PHP",
+        "MySQL",
+        "Node.js",
+        "React.js",
+        "Linux"
+      ],
+      "metrics": [
+        { "label": "Setup Time Saved", "value": "80%" },
+        { "label": "Query Accuracy Boost", "value": "90%" },
+        { "label": "Environments Managed", "value": "3 AWS Tiers" }
+      ]
+    }
+  ],
+  "skills": {
+    "sectionTag": "ENTANGLED OPERATIONAL MATRIX",
+    "title": "Technical Competencies & Quantum Toolset",
+    "description": "Multi-dimensional skill matrix spanning infrastructure-as-code, container orchestration, cloud platforms, and full-stack development.",
+    "categories": [
+      {
+        "id": "cloud-infra",
+        "name": "Cloud Infrastructure",
+        "icon": "Cloud",
+        "color": "#00f5ff",
+        "items": [
+          { "name": "AWS EC2 / Auto-scaling", "level": 95, "quantumState": "|ψ⟩ = 0.95" },
+          { "name": "AWS S3 / CloudFront CDN", "level": 92, "quantumState": "|ψ⟩ = 0.92" },
+          { "name": "AWS RDS & Multi-AZ", "level": 90, "quantumState": "|ψ⟩ = 0.90" },
+          { "name": "AWS VPC, Subnets & Routing", "level": 94, "quantumState": "|ψ⟩ = 0.94" },
+          { "name": "AWS ECS & Lambda Serverless", "level": 88, "quantumState": "|ψ⟩ = 0.88" },
+          { "name": "AWS SQS & CloudWatch Logs", "level": 90, "quantumState": "|ψ⟩ = 0.90" }
+        ]
+      },
+      {
+        "id": "cicd-iac",
+        "name": "CI/CD & Infrastructure as Code",
+        "icon": "GitBranch",
+        "color": "#a855f7",
+        "items": [
+          { "name": "Terraform HCL Modules", "level": 95, "quantumState": "|ψ⟩ = 0.95" },
+          { "name": "Jenkins Automated Pipelines", "level": 96, "quantumState": "|ψ⟩ = 0.96" },
+          { "name": "Ansible Configuration", "level": 90, "quantumState": "|ψ⟩ = 0.90" },
+          { "name": "Azure DevOps Repos & Pipelines", "level": 88, "quantumState": "|ψ⟩ = 0.88" },
+          { "name": "SonarQube Quality Gates", "level": 90, "quantumState": "|ψ⟩ = 0.90" }
+        ]
+      },
+      {
+        "id": "containers-orchestration",
+        "name": "Containers & Orchestration",
+        "icon": "Box",
+        "color": "#10b981",
+        "items": [
+          { "name": "Docker & Multi-Stage Builds", "level": 96, "quantumState": "|ψ⟩ = 0.96" },
+          { "name": "Kubernetes Clusters (K8s)", "level": 92, "quantumState": "|ψ⟩ = 0.92" },
+          { "name": "Service Discovery & Ingress", "level": 90, "quantumState": "|ψ⟩ = 0.90" },
+          { "name": "Microservice Decoupling", "level": 94, "quantumState": "|ψ⟩ = 0.94" }
+        ]
+      },
+      {
+        "id": "observability-metrics",
+        "name": "Observability & Security",
+        "icon": "Activity",
+        "color": "#f59e0b",
+        "items": [
+          { "name": "Prometheus Metric Scraping", "level": 92, "quantumState": "|ψ⟩ = 0.92" },
+          { "name": "Grafana Dashboards & Alerts", "level": 94, "quantumState": "|ψ⟩ = 0.94" },
+          { "name": "AWS CloudWatch Alarms", "level": 90, "quantumState": "|ψ⟩ = 0.90" },
+          { "name": "Linux Hardening & Auditing", "level": 92, "quantumState": "|ψ⟩ = 0.92" }
+        ]
+      },
+      {
+        "id": "languages-fullstack",
+        "name": "Programming & Web Frameworks",
+        "icon": "Code",
+        "color": "#ec4899",
+        "items": [
+          { "name": "Python Automation & Scripting", "level": 92, "quantumState": "|ψ⟩ = 0.92" },
+          { "name": "PHP Backend & APIs", "level": 94, "quantumState": "|ψ⟩ = 0.94" },
+          { "name": "React.js & Modern Frontend", "level": 88, "quantumState": "|ψ⟩ = 0.88" },
+          { "name": "Node.js & Express Services", "level": 86, "quantumState": "|ψ⟩ = 0.86" },
+          { "name": "MySQL & Relational Modeling", "level": 90, "quantumState": "|ψ⟩ = 0.90" },
+          { "name": "Bash / Shell Scripting", "level": 95, "quantumState": "|ψ⟩ = 0.95" }
+        ]
+      }
+    ]
+  },
+  "projects": [
+    {
+      "id": "proj-cicd-iac",
+      "title": "Automated Cloud CI/CD & Terraform IaC Pipeline",
+      "category": "DevOps & Cloud Automation",
+      "quantumHash": "0x7F9A_HIGGS_PIPELINE",
+      "energyFrequency": "742.8 THz",
+      "featured": true,
+      "description": "Architected an end-to-end automated infrastructure provisioning and continuous integration pipeline utilizing Terraform, Jenkins, and Azure Repos with SonarQube quality validation.",
+      "deepDive": "Configured modular Terraform state backends on AWS S3 with DynamoDB locking. Integrated Jenkins multi-branch pipelines executing automated linting, unit testing, and SonarQube security gating prior to automated deployment to staging and production.",
+      "techStack": ["Terraform", "Jenkins", "AWS S3", "Azure Repos", "SonarQube", "Ansible"],
+      "impact": "Slashed client environment bootstrap time by 80% while eradicating configuration drift.",
+      "metrics": [
+        { "label": "Speedup", "value": "80%" },
+        { "label": "Zero Drift", "value": "100% IaC" }
+      ],
+      "githubUrl": "https://github.com/AKHILESHRAVURI2001",
+      "liveUrl": ""
+    },
+    {
+      "id": "proj-microservices",
+      "title": "Monolith to Microservices Kubernetes Migration",
+      "category": "Cloud Architecture & Containers",
+      "quantumHash": "0x3B8C_K8S_MIGRATION",
+      "energyFrequency": "890.4 THz",
+      "featured": true,
+      "description": "Led the containerization and zero-downtime migration of a legacy monolithic platform into independent, scalable microservices orchestrated via Kubernetes on AWS.",
+      "deepDive": "Authored optimized multi-stage Dockerfiles reducing image size by 65%. Designed Kubernetes Deployment manifests, Ingress controllers, horizontal pod autoscalers (HPA), and config maps with rolling deployment strategies.",
+      "techStack": ["Docker", "Kubernetes", "AWS EKS/EC2", "Jenkins", "Linux", "Python"],
+      "impact": "Decoupled deployment lifecycles and eliminated downtime during production rollouts.",
+      "metrics": [
+        { "label": "Downtime", "value": "0 sec" },
+        { "label": "Image Size", "value": "-65%" }
+      ],
+      "githubUrl": "https://github.com/AKHILESHRAVURI2001",
+      "liveUrl": ""
+    },
+    {
+      "id": "proj-observability",
+      "title": "Zero-Point Observability & Telemetry Grid",
+      "category": "Monitoring & Incident Response",
+      "quantumHash": "0x11E4_PROMETHEUS_GRID",
+      "energyFrequency": "620.1 THz",
+      "featured": true,
+      "description": "Constructed an enterprise-grade observability matrix using Prometheus, Grafana, and AWS CloudWatch, delivering real-time metric visualization and predictive incident alerting.",
+      "deepDive": "Instrumented custom exporters across container nodes, database clusters, and web servers. Built unified Grafana dashboards tracking CPU, memory saturation, I/O bottlenecks, HTTP response codes, and p99 latency.",
+      "techStack": ["Prometheus", "Grafana", "AWS CloudWatch", "Python", "Alertmanager"],
+      "impact": "Ensured 99.9% system availability through proactive anomaly mitigation.",
+      "metrics": [
+        { "label": "System Uptime", "value": "99.9%" },
+        { "label": "MTTR Reduced", "value": "60%" }
+      ],
+      "githubUrl": "https://github.com/AKHILESHRAVURI2001",
+      "liveUrl": ""
+    },
+    {
+      "id": "proj-query-engine",
+      "title": "High-Efficiency SQL Query Validation Engine",
+      "category": "Backend Optimization & Data Integrity",
+      "quantumHash": "0x99DF_QUERY_VALIDATOR",
+      "energyFrequency": "515.6 THz",
+      "featured": false,
+      "description": "Engineered an intelligent query validation and syntax correction engine on PHP/MySQL, eliminating malformed SQL requests and preventing database lock contention.",
+      "deepDive": "Designed an AST-based lexical parsing layer intercepting raw database queries. Automatically repaired syntax flaws, enforced indexing guardrails, and sanitized input vectors before passing to MySQL execution.",
+      "techStack": ["PHP", "Python", "MySQL", "Apache", "Bash"],
+      "impact": "Boosted backend system execution accuracy by 90% while preventing fatal query exceptions.",
+      "metrics": [
+        { "label": "Accuracy", "value": "90%" },
+        { "label": "Data Errors", "value": "-95%" }
+      ],
+      "githubUrl": "https://github.com/AKHILESHRAVURI2001",
+      "liveUrl": ""
+    },
+    {
+      "id": "proj-react-node",
+      "title": "AI-Assisted Distributed Micro-Frontend & API Mesh",
+      "category": "Full-Stack Development",
+      "quantumHash": "0x55AE_REACT_NODE_MESH",
+      "energyFrequency": "995.0 THz",
+      "featured": false,
+      "description": "Developed full-stack web applications and micro-frontend features using React.js and Node.js with accelerated AI-assisted delivery workflows.",
+      "deepDive": "Implemented reactive client state architectures, custom React hooks, dynamic REST endpoint routers, and automated schema validation with clean component lifecycle management.",
+      "techStack": ["React.js", "Node.js", "JavaScript", "REST APIs", "Tailwind CSS"],
+      "impact": "Sped up feature release cycles by 2x with rigorous code quality standards.",
+      "metrics": [
+        { "label": "Delivery Velocity", "value": "2x" },
+        { "label": "Code Coverage", "value": "85%+" }
+      ],
+      "githubUrl": "https://github.com/AKHILESHRAVURI2001",
+      "liveUrl": ""
+    }
+  ],
+  "education": [
+    {
+      "degree": "Bachelor of Technology (B.Tech) – Electrical & Electronics Engineering",
+      "institution": "Vaagdevi Institute of Technology and Science, Proddatur",
+      "duration": "2019 – 2022",
+      "score": "79.2%",
+      "gradeBadge": "Distinction",
+      "highlights": "Comprehensive focus on control systems, power electronics, computational logic, and embedded microcontrollers."
+    },
+    {
+      "degree": "Diploma – Electrical & Electronics Engineering",
+      "institution": "Govt Polytechnic, Proddatur",
+      "duration": "2016 – 2019",
+      "score": "86.6%",
+      "gradeBadge": "High Distinction",
+      "highlights": "Hands-on engineering fundamentals, electrical machinery, circuit theory, and industrial instrumentation."
+    }
+  ],
+  "contact": {
+    "title": "Initialize Quantum Handshake",
+    "subtitle": "Ready to discuss cloud infrastructure scaling, DevOps transformation, Kubernetes architecture, or novel full-stack engineering challenges.",
+    "email": "akhileshravuri2001@gmail.com",
+    "phone": "+91 7095643856",
+    "location": "Bengaluru, Karnataka, India",
+    "status": "Online // Ready for Transmission",
+    "googleScriptUrl": "https://script.google.com/macros/s/AKfycbxAb3VaaAaOF8ZGHCwCHO-n2cnsAaVEb6fVjxjOylpxkvLgDnluyPFYUL_X8FWvBAqh5w/exec"
+  },
+  "social": [
+    { "name": "LinkedIn", "url": "https://www.linkedin.com/in/akhileshravuri", "icon": "Linkedin" },
+    { "name": "GitHub", "url": "https://github.com/AKHILESHRAVURI2001", "icon": "Github" },
+    { "name": "Email", "url": "mailto:akhileshravuri2001@gmail.com", "icon": "Mail" }
+  ],
+  "quantumTheme": {
+    "particleCount": 16000,
+    "primaryGlow": "#00f5ff",
+    "secondaryGlow": "#a855f7",
+    "accentGlow": "#10b981",
+    "singularityColor": "#ffffff",
+    "fieldCurvature": 2.4,
+    "zeroPointEntropy": 0.85
+  }
+}
