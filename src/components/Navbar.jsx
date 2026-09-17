@@ -92,13 +92,21 @@ export default function Navbar({ profile, onParticleToggle, particleCount }) {
             })}
           </nav>
 
-          {/* Right Action Terminal CTA */}
+          {/* Right Action CTAs */}
           <div className="hidden lg:flex items-center gap-3">
+            <a
+              href="./AkhileshRavuri.pdf"
+              download="Akhilesh_Ravuri_Resume.pdf"
+              className="flex items-center gap-2 px-3.5 py-2 rounded-xl text-xs font-mono font-medium text-slate-200 glass-panel border-purple-500/30 hover:border-purple-400 hover:text-white transition-all transform hover:-translate-y-0.5 cursor-pointer"
+            >
+              <span>Resume</span>
+              <ArrowUpRight className="w-3.5 h-3.5 opacity-60" />
+            </a>
+
             <a
               href="#contact"
               className="flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-mono font-medium text-quantum-dark bg-gradient-to-r from-higgs-cyan to-higgs-neon hover:brightness-110 shadow-[0_0_20px_rgba(0,245,255,0.4)] transition-all transform hover:-translate-y-0.5 active:translate-y-0"
             >
-              <Terminal className="w-3.5 h-3.5" />
               <span>Contact Me</span>
               <ArrowUpRight className="w-3.5 h-3.5" />
             </a>
@@ -129,11 +137,20 @@ export default function Navbar({ profile, onParticleToggle, particleCount }) {
               </a>
             ))}
             <a
+              href="./AkhileshRavuri.pdf"
+              download="Akhilesh_Ravuri_Resume.pdf"
+              onClick={() => setMobileMenuOpen(false)}
+              className="px-4 py-2.5 rounded-lg text-sm font-mono text-purple-300 hover:text-white hover:bg-purple-500/10 transition-colors flex items-center justify-between"
+            >
+              <span>Download Resume (PDF)</span>
+              <ArrowUpRight className="w-4 h-4 opacity-50" />
+            </a>
+            <a
               href="#contact"
               onClick={() => setMobileMenuOpen(false)}
               className="mt-2 text-center py-2.5 rounded-lg text-sm font-mono font-medium text-quantum-dark bg-higgs-cyan"
             >
-              INITIALIZE HANDSHAKE
+              Contact Me
             </a>
           </div>
         )}

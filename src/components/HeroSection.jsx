@@ -85,9 +85,8 @@ export default function HeroSection({ hero, profile }) {
           {hero?.resumeCta && (
             <a
               href={hero.resumeCta.href}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="px-6 py-3.5 rounded-xl font-mono text-sm font-semibold text-purple-300 glass-panel border-purple-500/30 hover:border-purple-400 hover:text-white transition-all transform hover:-translate-y-0.5 flex items-center gap-2"
+              download="Akhilesh_Ravuri_Resume.pdf"
+              className="px-6 py-3.5 rounded-xl font-mono text-sm font-semibold text-purple-300 glass-panel border-purple-500/30 hover:border-purple-400 hover:text-white transition-all transform hover:-translate-y-0.5 flex items-center gap-2 cursor-pointer"
             >
               <Download className="w-4 h-4 text-purple-400" />
               <span>{hero.resumeCta.label}</span>
@@ -95,12 +94,12 @@ export default function HeroSection({ hero, profile }) {
           )}
         </div>
 
-        {/* Interactive Floating Tech Stack Matrix */}
+        {/* Interactive Tech Stack Matrix */}
         {hero?.techStack && Array.isArray(hero.techStack) && hero.techStack.length > 0 && (
           <div className="pt-6 border-t border-cyan-500/15">
             <div className="text-xs font-mono text-slate-400 uppercase tracking-widest mb-4 flex items-center justify-center gap-2">
               <Activity className="w-3.5 h-3.5 text-higgs-cyan" />
-              <span>Entangled Cloud & Development Stack</span>
+              <span>Core Technology Stack</span>
             </div>
             <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-3 max-w-4xl mx-auto">
               {hero.techStack.map((tech, idx) => (

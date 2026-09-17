@@ -35,8 +35,8 @@
       "href": "#contact"
     },
     "resumeCta": {
-      "label": "GitHub Profile",
-      "href": "https://github.com/AKHILESHRAVURI2001"
+      "label": "Download Resume",
+      "href": "./AkhileshRavuri.pdf"
     },
     "techStack": [
       { "name": "AWS", "category": "Cloud", "color": "#FF9900" },
