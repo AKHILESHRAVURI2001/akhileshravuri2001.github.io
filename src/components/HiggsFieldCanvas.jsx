@@ -2,174 +2,221 @@ import React, { useRef, useMemo, useEffect } from 'react';
 import { Canvas, useFrame, useThree } from '@react-three/fiber';
 import * as THREE from 'three';
 
-// Custom GLSL Vertex Shader for Higgs Field Particles
-const higgsVertexShader = `
-  uniform float uTime;
-  uniform vec2 uMouse;
-  uniform float uScrollProgress;
-  uniform float uHiggsCoupling;
-  uniform vec3 uColorCyan;
-  uniform vec3 uColorPurple;
-  uniform vec3 uColorEmerald;
-  
-  attribute float aSize;
-  attribute float aPhase;
-  attribute float aSpeed;
-  attribute vec3 aRandomDir;
+// 3D Cloud Infrastructure Nodes (Kubernetes Pods, AWS EC2/RDS Instances, Microservice Nodes)
+function CloudInfrastructureMesh({ scrollProgress, mousePos }) {
+  const groupRef = useRef();
+  const lineMeshRef = useRef();
+  const packetsRef = useRef();
 
-  varying vec3 vColor;
-  varying float vAlpha;
-  varying float vDistToMouse;
+  // Generate Cloud Topology Nodes
+  const { nodes, linePositions, packetData } = useMemo(() => {
+    const nodeCount = 42;
+    const nodeList = [];
+    const types = ['k8s-pod', 'aws-ec2', 'db-cluster', 'api-gateway', 'cicd-runner'];
 
-  // Simplex-like pseudo 3D noise
-  vec3 curl(vec3 p) {
-    float x = sin(p.y * 1.5 + uTime * 0.4) * cos(p.z * 1.2 + aPhase);
-    float y = sin(p.z * 1.5 + uTime * 0.4) * cos(p.x * 1.2 + aPhase);
-    float z = sin(p.x * 1.5 + uTime * 0.4) * cos(p.y * 1.2 + aPhase);
-    return vec3(x, y, z) * 0.45;
-  }
-
-  void main() {
-    vec3 pos = position;
-
-    // Zero-point harmonic vibration
-    vec3 noiseDisp = curl(pos * 0.15 + vec3(aPhase));
-    pos += noiseDisp * (1.0 + sin(uTime * aSpeed + aPhase) * 0.3);
-
-    // Dynamic scroll rotation and drift
-    float scrollAngle = uScrollProgress * 3.14159 * 1.5;
-    mat2 rotY = mat2(cos(scrollAngle * 0.3), -sin(scrollAngle * 0.3), sin(scrollAngle * 0.3), cos(scrollAngle * 0.3));
-    pos.xz = rotY * pos.xz;
-
-    // Higgs Field Coupling: Raycasted Cursor Interaction
-    // In 3D space, mouse is projected near z = 0
-    vec3 mouse3D = vec3(uMouse.x * 14.0, uMouse.y * 9.0, 0.0);
-    vec3 diff = mouse3D - pos;
-    float dist = length(diff);
-    vDistToMouse = dist;
-
-    // When particles encounter the cursor field, they "acquire mass", decelerate, and condense
-    float fieldRadius = 6.5;
-    if (dist < fieldRadius) {
-      float force = (1.0 - dist / fieldRadius) * uHiggsCoupling;
-      // Inward pull + spiral swirl simulating mass acquisition in gauge field
-      vec3 swirl = cross(normalize(diff + vec3(0.001)), vec3(0.0, 0.0, 1.0));
-      pos += normalize(diff) * force * 2.2 + swirl * force * 1.4;
-    }
-
-    vec4 mvPosition = modelViewMatrix * vec4(pos, 1.0);
-    gl_Position = projectionMatrix * mvPosition;
-
-    // Dynamic particle point size (larger near camera and when excited by cursor)
-    float massExcitement = smoothstep(6.5, 0.0, dist) * 2.5;
-    gl_PointSize = (aSize * 18.0 * (1.0 + massExcitement)) / -mvPosition.z;
-
-    // Dynamic color gradient based on zero-point frequency and mouse mass condensation
-    float colorMix = sin(aPhase + uTime * 0.5) * 0.5 + 0.5;
-    vec3 baseColor = mix(uColorCyan, uColorPurple, colorMix);
-    
-    // Near cursor: energize toward quantum emerald and white singularity
-    if (dist < fieldRadius) {
-      float energyFactor = pow(1.0 - dist / fieldRadius, 1.8);
-      baseColor = mix(baseColor, uColorEmerald, energyFactor * 0.7);
-      baseColor = mix(baseColor, vec3(1.0, 1.0, 1.0), energyFactor * 0.5);
-    }
-
-    vColor = baseColor;
-    vAlpha = smoothstep(30.0, 4.0, -mvPosition.z) * (0.6 + massExcitement * 0.35);
-  }
-`;
-
-// Custom GLSL Fragment Shader for luminous quantum sparks
-const higgsFragmentShader = `
-  varying vec3 vColor;
-  varying float vAlpha;
-  varying float vDistToMouse;
-
-  void main() {
-    // Radial circular falloff with hot white core
-    vec2 coord = gl_PointCoord - vec2(0.5);
-    float dist = length(coord);
-    if (dist > 0.5) discard;
-
-    // Gaussian glow profile
-    float intensity = exp(-dist * dist * 18.0);
-    float core = smoothstep(0.12, 0.0, dist) * 1.5;
-
-    vec3 finalColor = vColor * intensity + vec3(1.0) * core;
-    float alpha = (intensity + core * 0.5) * vAlpha;
-
-    gl_FragColor = vec4(finalColor, clamp(alpha, 0.0, 1.0));
-  }
-`;
-
-// 15,000+ GPU Instanced Higgs Field Particle System
-function HiggsParticleField({ scrollProgress, mousePos, particleCount = 16000 }) {
-  const pointsRef = useRef();
-  const materialRef = useRef();
-
-  const [positions, sizes, phases, speeds, randomDirs] = useMemo(() => {
-    const pos = new Float32Array(particleCount * 3);
-    const sz = new Float32Array(particleCount);
-    const ph = new Float32Array(particleCount);
-    const sp = new Float32Array(particleCount);
-    const rd = new Float32Array(particleCount * 3);
-
-    for (let i = 0; i < particleCount; i++) {
-      // Cylindrical/spherical cloud distribution with dense core and expansive halo
-      const r = Math.pow(Math.random(), 0.6) * 26 + 1.5;
+    for (let i = 0; i < nodeCount; i++) {
+      const radius = Math.random() * 10 + 2.5;
       const theta = Math.random() * Math.PI * 2;
-      const phi = (Math.random() - 0.5) * Math.PI * 0.9;
+      const phi = (Math.random() - 0.5) * Math.PI * 0.8;
 
-      pos[i * 3] = r * Math.cos(phi) * Math.sin(theta);
-      pos[i * 3 + 1] = r * Math.sin(phi) + (Math.random() - 0.5) * 8;
-      pos[i * 3 + 2] = r * Math.cos(phi) * Math.cos(theta) - 5.0;
+      const x = radius * Math.cos(phi) * Math.sin(theta);
+      const y = radius * Math.sin(phi) * 0.9 + (Math.random() - 0.5) * 4;
+      const z = radius * Math.cos(phi) * Math.cos(theta) - 3.0;
 
-      sz[i] = Math.random() * 0.8 + 0.3;
-      ph[i] = Math.random() * Math.PI * 2;
-      sp[i] = Math.random() * 0.6 + 0.3;
+      const type = types[i % types.length];
+      const color =
+        type === 'k8s-pod'
+          ? '#326CE5' // K8s blue
+          : type === 'aws-ec2'
+          ? '#FF9900' // AWS orange
+          : type === 'db-cluster'
+          ? '#00f5ff' // Cyan
+          : type === 'cicd-runner'
+          ? '#10b981' // Green
+          : '#a855f7'; // Purple
 
-      rd[i * 3] = (Math.random() - 0.5) * 2;
-      rd[i * 3 + 1] = (Math.random() - 0.5) * 2;
-      rd[i * 3 + 2] = (Math.random() - 0.5) * 2;
+      nodeList.push({
+        position: new THREE.Vector3(x, y, z),
+        type,
+        color,
+        size: type === 'api-gateway' ? 0.28 : type === 'db-cluster' ? 0.24 : 0.18,
+        pulseSpeed: 1.5 + Math.random() * 2,
+        phase: Math.random() * Math.PI * 2,
+      });
     }
 
-    return [pos, sz, ph, sp, rd];
-  }, [particleCount]);
+    // Connect nodes with VPC / Service Mesh connections
+    const lineCoords = [];
+    const connections = [];
 
-  const uniforms = useMemo(
-    () => ({
-      uTime: { value: 0 },
-      uMouse: { value: new THREE.Vector2(0, 0) },
-      uScrollProgress: { value: 0 },
-      uHiggsCoupling: { value: 1.25 },
-      uColorCyan: { value: new THREE.Color('#00f5ff') },
-      uColorPurple: { value: new THREE.Color('#a855f7') },
-      uColorEmerald: { value: new THREE.Color('#10b981') },
-    }),
-    []
-  );
+    for (let i = 0; i < nodeList.length; i++) {
+      for (let j = i + 1; j < nodeList.length; j++) {
+        const dist = nodeList[i].position.distanceTo(nodeList[j].position);
+        if (dist < 4.8) {
+          lineCoords.push(nodeList[i].position.x, nodeList[i].position.y, nodeList[i].position.z);
+          lineCoords.push(nodeList[j].position.x, nodeList[j].position.y, nodeList[j].position.z);
+          connections.push({
+            start: nodeList[i].position,
+            end: nodeList[j].position,
+            color: nodeList[i].color,
+          });
+        }
+      }
+    }
+
+    // CI/CD Data Packets traveling along network connections
+    const packetList = connections.map((conn, idx) => ({
+      start: conn.start,
+      end: conn.end,
+      color: conn.color,
+      progress: (idx * 0.13) % 1,
+      speed: 0.2 + Math.random() * 0.3,
+    }));
+
+    return {
+      nodes: nodeList,
+      linePositions: new Float32Array(lineCoords),
+      packetData: packetList,
+    };
+  }, []);
+
+  const packetPositions = useMemo(() => new Float32Array(packetData.length * 3), [packetData]);
 
   useFrame((state, delta) => {
-    if (materialRef.current) {
-      materialRef.current.uniforms.uTime.value += delta * 0.9;
-      
-      // Lerp mouse coordinates smoothly
-      materialRef.current.uniforms.uMouse.value.lerp(
-        new THREE.Vector2(mousePos.current.x, mousePos.current.y),
-        0.08
-      );
-      
-      materialRef.current.uniforms.uScrollProgress.value = THREE.MathUtils.lerp(
-        materialRef.current.uniforms.uScrollProgress.value,
-        scrollProgress.current,
-        0.06
-      );
+    if (groupRef.current) {
+      groupRef.current.rotation.y = state.clock.elapsedTime * 0.04 + scrollProgress.current * 0.8;
+      groupRef.current.rotation.x = Math.sin(state.clock.elapsedTime * 0.05) * 0.08 + mousePos.current.y * 0.1;
+      groupRef.current.rotation.z = mousePos.current.x * 0.08;
     }
 
+    // Update CI/CD Data Packets along connection links
+    if (packetsRef.current) {
+      const posAttr = packetsRef.current.geometry.attributes.position;
+      for (let i = 0; i < packetData.length; i++) {
+        const p = packetData[i];
+        p.progress = (p.progress + delta * p.speed) % 1;
+        const currentPos = new THREE.Vector3().lerpVectors(p.start, p.end, p.progress);
+        posAttr.setXYZ(i, currentPos.x, currentPos.y, currentPos.z);
+      }
+      posAttr.needsUpdate = true;
+    }
+  });
+
+  return (
+    <group ref={groupRef}>
+      {/* Network VPC Mesh Lines */}
+      <lineSegments ref={lineMeshRef}>
+        <bufferGeometry>
+          <bufferAttribute
+            attach="attributes-position"
+            count={linePositions.length / 3}
+            array={linePositions}
+            itemSize={3}
+          />
+        </bufferGeometry>
+        <lineBasicMaterial
+          color="#00f5ff"
+          transparent
+          opacity={0.18}
+          blending={THREE.AdditiveBlending}
+        />
+      </lineSegments>
+
+      {/* CI/CD Data Packets */}
+      <points ref={packetsRef}>
+        <bufferGeometry>
+          <bufferAttribute
+            attach="attributes-position"
+            count={packetData.length}
+            array={packetPositions}
+            itemSize={3}
+          />
+        </bufferGeometry>
+        <pointsMaterial
+          size={0.15}
+          color="#00ffcc"
+          transparent
+          opacity={0.9}
+          blending={THREE.AdditiveBlending}
+        />
+      </points>
+
+      {/* Cloud Server & Kubernetes Pod Nodes */}
+      {nodes.map((node, idx) => (
+        <group key={idx} position={[node.position.x, node.position.y, node.position.z]}>
+          {/* Server / Pod Core Geometric Node */}
+          <mesh>
+            {node.type === 'k8s-pod' ? (
+              <octahedronGeometry args={[node.size, 0]} />
+            ) : node.type === 'aws-ec2' ? (
+              <boxGeometry args={[node.size * 1.4, node.size * 1.4, node.size * 1.4]} />
+            ) : node.type === 'db-cluster' ? (
+              <cylinderGeometry args={[node.size, node.size, node.size * 1.6, 8]} />
+            ) : (
+              <dodecahedronGeometry args={[node.size, 0]} />
+            )}
+            <meshBasicMaterial
+              color={node.color}
+              wireframe={idx % 2 === 0}
+              transparent
+              opacity={0.85}
+            />
+          </mesh>
+
+          {/* Node Health Glow Aura */}
+          <mesh>
+            <sphereGeometry args={[node.size * 1.8, 12, 12]} />
+            <meshBasicMaterial
+              color={node.color}
+              transparent
+              opacity={0.12}
+              blending={THREE.AdditiveBlending}
+            />
+          </mesh>
+        </group>
+      ))}
+    </group>
+  );
+}
+
+// Background Cloud Atmosphere Particles (Micro-telemetry & Server Traffic)
+function CloudTelemetryParticles({ scrollProgress, mousePos, count = 4000 }) {
+  const pointsRef = useRef();
+
+  const [positions, colors] = useMemo(() => {
+    const pos = new Float32Array(count * 3);
+    const col = new Float32Array(count * 3);
+
+    const palette = [
+      new THREE.Color('#38bdf8'), // AWS / Cloud blue
+      new THREE.Color('#326CE5'), // Kubernetes blue
+      new THREE.Color('#10b981'), // Healthy green
+      new THREE.Color('#FF9900'), // AWS Orange
+      new THREE.Color('#8b5cf6'), // Microservices Purple
+    ];
+
+    for (let i = 0; i < count; i++) {
+      const r = Math.random() * 22 + 2;
+      const theta = Math.random() * Math.PI * 2;
+      const phi = (Math.random() - 0.5) * Math.PI;
+
+      pos[i * 3] = r * Math.sin(phi) * Math.cos(theta);
+      pos[i * 3 + 1] = r * Math.cos(phi) * 0.8 + (Math.random() - 0.5) * 6;
+      pos[i * 3 + 2] = r * Math.sin(phi) * Math.sin(theta) - 4;
+
+      const c = palette[i % palette.length];
+      col[i * 3] = c.r;
+      col[i * 3 + 1] = c.g;
+      col[i * 3 + 2] = c.b;
+    }
+
+    return [pos, col];
+  }, [count]);
+
+  useFrame((state) => {
     if (pointsRef.current) {
-      pointsRef.current.rotation.y = state.clock.elapsedTime * 0.02 + scrollProgress.current * 0.5;
-      pointsRef.current.rotation.x = Math.sin(state.clock.elapsedTime * 0.03) * 0.08;
+      pointsRef.current.rotation.y = -state.clock.elapsedTime * 0.015 + scrollProgress.current * 0.4;
+      pointsRef.current.rotation.x = Math.sin(state.clock.elapsedTime * 0.02) * 0.04;
     }
   });
 
@@ -183,149 +230,44 @@ function HiggsParticleField({ scrollProgress, mousePos, particleCount = 16000 })
           itemSize={3}
         />
         <bufferAttribute
-          attach="attributes-aSize"
-          count={sizes.length}
-          array={sizes}
-          itemSize={1}
-        />
-        <bufferAttribute
-          attach="attributes-aPhase"
-          count={phases.length}
-          array={phases}
-          itemSize={1}
-        />
-        <bufferAttribute
-          attach="attributes-aSpeed"
-          count={speeds.length}
-          array={speeds}
-          itemSize={1}
-        />
-        <bufferAttribute
-          attach="attributes-aRandomDir"
-          count={randomDirs.length / 3}
-          array={randomDirs}
+          attach="attributes-color"
+          count={colors.length / 3}
+          array={colors}
           itemSize={3}
         />
       </bufferGeometry>
-      <shaderMaterial
-        ref={materialRef}
-        vertexShader={higgsVertexShader}
-        fragmentShader={higgsFragmentShader}
-        uniforms={uniforms}
-        transparent={true}
-        depthWrite={false}
+      <pointsMaterial
+        size={0.06}
+        vertexColors
+        transparent
+        opacity={0.45}
         blending={THREE.AdditiveBlending}
+        depthWrite={false}
       />
     </points>
   );
 }
 
-// Quantum Memory Grid: Entangled crystalline lattice & pulsing neon data buses
-function QuantumMemoryGrid({ scrollProgress }) {
-  const groupRef = useRef();
-  const lineMeshRef = useRef();
-
-  // Generate lattice nodes & entangled connections
-  const { nodePositions, linePositions } = useMemo(() => {
-    const nodes = [];
-    const numNodes = 32;
-    const radius = 11;
-
-    for (let i = 0; i < numNodes; i++) {
-      const u = Math.random();
-      const v = Math.random();
-      const theta = u * 2.0 * Math.PI;
-      const phi = Math.acos(2.0 * v - 1.0);
-      const r = radius * Math.cbrt(Math.random()) * 0.85 + 2.5;
-
-      const x = r * Math.sin(phi) * Math.cos(theta);
-      const y = r * Math.sin(phi) * Math.sin(theta);
-      const z = r * Math.cos(phi) - 3.0;
-
-      nodes.push(new THREE.Vector3(x, y, z));
-    }
-
-    // Connect nearest nodes with entangled bus lines
-    const lineCoords = [];
-    for (let i = 0; i < nodes.length; i++) {
-      for (let j = i + 1; j < nodes.length; j++) {
-        const dist = nodes[i].distanceTo(nodes[j]);
-        if (dist < 6.8) {
-          lineCoords.push(nodes[i].x, nodes[i].y, nodes[i].z);
-          lineCoords.push(nodes[j].x, nodes[j].y, nodes[j].z);
-        }
-      }
-    }
-
-    return {
-      nodePositions: nodes,
-      linePositions: new Float32Array(lineCoords),
-    };
-  }, []);
-
-  useFrame((state) => {
-    if (groupRef.current) {
-      groupRef.current.rotation.y = -state.clock.elapsedTime * 0.035 + scrollProgress.current * 0.6;
-      groupRef.current.rotation.z = Math.sin(state.clock.elapsedTime * 0.05) * 0.1;
-    }
-  });
-
-  return (
-    <group ref={groupRef}>
-      {/* Dynamic line connections */}
-      <lineSegments ref={lineMeshRef}>
-        <bufferGeometry>
-          <bufferAttribute
-            attach="attributes-position"
-            count={linePositions.length / 3}
-            array={linePositions}
-            itemSize={3}
-          />
-        </bufferGeometry>
-        <lineBasicMaterial
-          color="#00f5ff"
-          transparent
-          opacity={0.22}
-          blending={THREE.AdditiveBlending}
-        />
-      </lineSegments>
-
-      {/* Crystalline Lattice Nodes */}
-      {nodePositions.map((pos, idx) => (
-        <mesh key={idx} position={[pos.x, pos.y, pos.z]}>
-          <octahedronGeometry args={[0.18, 0]} />
-          <meshBasicMaterial
-            color={idx % 2 === 0 ? '#00f5ff' : '#a855f7'}
-            wireframe={idx % 3 === 0}
-            transparent
-            opacity={0.85}
-          />
-        </mesh>
-      ))}
-    </group>
-  );
-}
-
-// Interactive Camera Controller with Scroll Choreography
-function CameraRig({ scrollProgress, mousePos }) {
+// Camera Movement across Cloud Infrastructure
+function CameraController({ scrollProgress, mousePos }) {
   const { camera } = useThree();
 
   useFrame(() => {
-    const targetZ = 13.5 - scrollProgress.current * 4.0;
-    const targetY = -scrollProgress.current * 3.5 + mousePos.current.y * 0.8;
-    const targetX = mousePos.current.x * 1.2 + Math.sin(scrollProgress.current * Math.PI) * 1.5;
+    const targetZ = 12.5 - scrollProgress.current * 3.5;
+    const targetY = -scrollProgress.current * 2.5 + mousePos.current.y * 0.6;
+    const targetX = mousePos.current.x * 0.8 + Math.sin(scrollProgress.current * Math.PI) * 1.0;
 
     camera.position.x = THREE.MathUtils.lerp(camera.position.x, targetX, 0.05);
     camera.position.y = THREE.MathUtils.lerp(camera.position.y, targetY, 0.05);
     camera.position.z = THREE.MathUtils.lerp(camera.position.z, targetZ, 0.05);
 
-    camera.lookAt(0, -scrollProgress.current * 2.0, 0);
+    camera.lookAt(0, -scrollProgress.current * 1.5, 0);
   });
 
   return null;
 }
 
-export default function HiggsFieldCanvas({ particleCount = 16000 }) {
+export default function HiggsFieldCanvas() {
   const scrollProgress = useRef(0);
   const mousePos = useRef({ x: 0, y: 0 });
 
@@ -344,49 +286,41 @@ export default function HiggsFieldCanvas({ particleCount = 16000 }) {
       };
     };
 
-    const handleTouchMove = (e) => {
-      if (e.touches.length > 0) {
-        mousePos.current = {
-          x: (e.touches[0].clientX / window.innerWidth) * 2 - 1,
-          y: -(e.touches[0].clientY / window.innerHeight) * 2 + 1,
-        };
-      }
-    };
-
     window.addEventListener('scroll', handleScroll, { passive: true });
     window.addEventListener('mousemove', handleMouseMove, { passive: true });
-    window.addEventListener('touchmove', handleTouchMove, { passive: true });
 
     return () => {
       window.removeEventListener('scroll', handleScroll);
       window.removeEventListener('mousemove', handleMouseMove);
-      window.removeEventListener('touchmove', handleTouchMove);
     };
   }, []);
 
   return (
     <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden">
       <Canvas
-        camera={{ position: [0, 0, 13.5], fov: 60, near: 0.1, far: 100 }}
+        camera={{ position: [0, 0, 12.5], fov: 55, near: 0.1, far: 100 }}
         gl={{
           antialias: true,
           alpha: true,
           powerPreference: 'high-performance',
         }}
-        dpr={[1, 2]}
+        dpr={[1, 1.5]}
       >
         <color attach="background" args={['#030712']} />
-        <ambientLight intensity={0.4} />
-        <CameraRig scrollProgress={scrollProgress} mousePos={mousePos} />
-        <HiggsParticleField
+        <ambientLight intensity={0.5} />
+        <CameraController scrollProgress={scrollProgress} mousePos={mousePos} />
+        <CloudInfrastructureMesh
           scrollProgress={scrollProgress}
           mousePos={mousePos}
-          particleCount={particleCount}
         />
-        <QuantumMemoryGrid scrollProgress={scrollProgress} />
+        <CloudTelemetryParticles
+          scrollProgress={scrollProgress}
+          mousePos={mousePos}
+          count={3500}
+        />
       </Canvas>
-      {/* Holographic cyber grid & scanlines */}
-      <div className="absolute inset-0 bg-cyber-grid pointer-events-none opacity-40 mix-blend-screen" />
+      {/* Subtle cloud architecture grid */}
+      <div className="absolute inset-0 bg-cyber-grid pointer-events-none opacity-30 mix-blend-screen" />
       <div className="absolute inset-0 bg-radial-vignette pointer-events-none" />
     </div>
   );
