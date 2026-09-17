@@ -11,6 +11,7 @@ import SkillsSection from './components/SkillsSection';
 import EducationSection from './components/EducationSection';
 import ContactSection from './components/ContactSection';
 import QuantumFooter from './components/QuantumFooter';
+import FloatingContactDock from './components/FloatingContactDock';
 
 export default function App() {
   const [data, setData] = useState(portfolioData || {});
@@ -51,6 +52,9 @@ export default function App() {
         {education && <EducationSection education={education} />}
         {contact && <ContactSection contact={contact} social={social} />}
       </main>
+
+      {/* Floating Action Quick Contact Dock (WhatsApp, Email, Phone) */}
+      <FloatingContactDock />
 
       {/* Quantum Telemetry Footer */}
       <QuantumFooter profile={profile} social={social} />
