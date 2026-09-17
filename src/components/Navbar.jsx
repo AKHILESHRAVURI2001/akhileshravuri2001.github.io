@@ -59,12 +59,12 @@ export default function Navbar({ profile, onParticleToggle, particleCount }) {
                   {profile?.shortName || 'AKHILESH RAVURI'}
                 </span>
                 <span className="hidden sm:inline-block px-1.5 py-0.5 text-[10px] font-mono rounded bg-cyan-950/80 text-higgs-cyan border border-cyan-500/30">
-                  DEV//OPS
+                  DevOps
                 </span>
               </div>
               <div className="flex items-center gap-1.5 text-[11px] font-mono text-slate-400">
                 <span className="w-2 h-2 rounded-full bg-emerald-400 animate-ping inline-block" />
-                <span className="text-emerald-400 font-medium">HIGGS COUPLING: 1.0</span>
+                <span className="text-emerald-400 font-medium">Available for Work</span>
               </div>
             </div>
           </a>
@@ -99,7 +99,7 @@ export default function Navbar({ profile, onParticleToggle, particleCount }) {
               className="flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-mono font-medium text-quantum-dark bg-gradient-to-r from-higgs-cyan to-higgs-neon hover:brightness-110 shadow-[0_0_20px_rgba(0,245,255,0.4)] transition-all transform hover:-translate-y-0.5 active:translate-y-0"
             >
               <Terminal className="w-3.5 h-3.5" />
-              <span>ENGAGE HANDSHAKE</span>
+              <span>Contact Me</span>
               <ArrowUpRight className="w-3.5 h-3.5" />
             </a>
           </div>
