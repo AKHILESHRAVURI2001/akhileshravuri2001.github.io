@@ -1,5 +1,5 @@
 import React, { useState, useMemo } from 'react';
-import { Layers, Sparkles, ArrowUpRight, Cpu, ExternalLink, Filter } from 'lucide-react';
+import { Layers, ArrowUpRight, Filter } from 'lucide-react';
 import GenerativeQuantumCard from './GenerativeQuantumCard';
 import ProjectModal from './ProjectModal';
 
@@ -30,24 +30,24 @@ export default function ProjectsSection({ projects }) {
       <div className="max-w-7xl mx-auto">
         
         {/* Section Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-8 sm:mb-10">
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 sm:gap-6 mb-8 sm:mb-10">
           <div>
-            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-cyan-950/70 border border-cyan-500/30 text-xs font-mono text-higgs-cyan mb-4">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-cyan-950/70 border border-cyan-500/30 text-xs font-mono text-higgs-cyan mb-3">
               <Layers className="w-3.5 h-3.5 text-higgs-cyan" />
-              <span>QUANTUM PROJECTS & DEPLOYMENTS</span>
+              <span>Projects</span>
             </div>
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-bold text-white leading-tight">
-              Featured Infrastructure & Engineering
+              Featured Projects
             </h2>
           </div>
 
           <p className="max-w-md text-sm sm:text-base text-slate-300 font-light">
-            Every project visual is generated procedurally using quantum topological waveform synthesis mapped to each project's data hash.
+            Production-grade cloud automation, Kubernetes microservices, and backend engineering projects.
           </p>
         </div>
 
-        {/* Dynamic Category Filters */}
-        <div className="flex items-center gap-2 overflow-x-auto pb-4 mb-10 no-scrollbar">
+        {/* Category Filters */}
+        <div className="flex items-center gap-2 overflow-x-auto pb-3 mb-8 no-scrollbar scroll-smooth">
           <Filter className="w-4 h-4 text-cyan-400 mr-1 flex-shrink-0" />
           {categories.map((cat) => {
             const isActive = selectedCategory === cat;
@@ -55,7 +55,7 @@ export default function ProjectsSection({ projects }) {
               <button
                 key={cat}
                 onClick={() => setSelectedCategory(cat)}
-                className={`px-4 py-2 rounded-xl text-xs font-mono whitespace-nowrap transition-all ${
+                className={`px-3.5 py-1.5 sm:px-4 sm:py-2 rounded-xl text-xs font-mono whitespace-nowrap transition-all cursor-pointer ${
                   isActive
                     ? 'bg-gradient-to-r from-higgs-cyan to-higgs-neon text-quantum-dark font-bold shadow-[0_0_15px_rgba(0,245,255,0.4)]'
                     : 'glass-panel text-slate-300 hover:text-white hover:border-cyan-500/40'
@@ -68,7 +68,7 @@ export default function ProjectsSection({ projects }) {
         </div>
 
         {/* Projects Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
           {filteredProjects.map((project) => {
             const isHovered = hoveredProjectId === project.id;
             return (
@@ -77,9 +77,9 @@ export default function ProjectsSection({ projects }) {
                 onMouseEnter={() => setHoveredProjectId(project.id)}
                 onMouseLeave={() => setHoveredProjectId(null)}
                 onClick={() => setActiveProject(project)}
-                className="glass-panel p-5 rounded-3xl border-cyan-500/20 hover:border-cyan-400/60 glass-card-interactive group cursor-pointer flex flex-col justify-between relative overflow-hidden"
+                className="glass-panel p-4 sm:p-5 rounded-2xl sm:rounded-3xl border-cyan-500/20 hover:border-cyan-400/60 glass-card-interactive group cursor-pointer flex flex-col justify-between relative overflow-hidden"
               >
-                {/* Generative Visual Header */}
+                {/* Visual Header */}
                 <div className="mb-4">
                   <GenerativeQuantumCard
                     quantumHash={project.quantumHash}
@@ -96,7 +96,7 @@ export default function ProjectsSection({ projects }) {
                     <div className="text-[11px] font-mono text-higgs-cyan uppercase tracking-wider mb-1">
                       {project.category}
                     </div>
-                    <h3 className="text-lg sm:text-xl font-display font-bold text-white group-hover:text-higgs-cyan transition-colors line-clamp-2">
+                    <h3 className="text-base sm:text-lg font-display font-bold text-white group-hover:text-higgs-cyan transition-colors line-clamp-2">
                       {project.title}
                     </h3>
                     <p className="text-xs sm:text-sm text-slate-300 mt-2 line-clamp-3 font-light leading-relaxed">
@@ -105,11 +105,11 @@ export default function ProjectsSection({ projects }) {
                   </div>
 
                   {/* Impact Metric & Tech Tags */}
-                  <div className="pt-4 border-t border-cyan-500/15 space-y-3">
+                  <div className="pt-3.5 border-t border-cyan-500/15 space-y-2.5">
                     {project.impact && (
-                      <div className="text-xs font-mono text-emerald-400 bg-emerald-950/40 px-3 py-1.5 rounded-lg border border-emerald-500/30 flex items-center justify-between">
+                      <div className="text-xs font-mono text-emerald-400 bg-emerald-950/40 px-3 py-1 rounded-lg border border-emerald-500/30 flex items-center justify-between">
                         <span className="text-[10px] text-slate-400">IMPACT:</span>
-                        <span className="font-semibold">{project.impact}</span>
+                        <span className="font-semibold line-clamp-1">{project.impact}</span>
                       </div>
                     )}
 
@@ -135,8 +135,8 @@ export default function ProjectsSection({ projects }) {
 
                 {/* Card Hover Trigger Arrow */}
                 <div className="mt-4 pt-3 border-t border-cyan-500/10 flex items-center justify-between text-xs font-mono text-slate-400 group-hover:text-higgs-cyan">
-                  <span>INSPECT ARCHITECTURE</span>
-                  <ArrowUpRight className="w-4 h-4 transform group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+                  <span>View Details</span>
+                  <ArrowUpRight className="w-4 h-4 transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
                 </div>
               </div>
             );

@@ -41,3 +41,4 @@ Thumbs.db
 # Vite cache
 .vite/
 .eslintcache
+node_modules/
