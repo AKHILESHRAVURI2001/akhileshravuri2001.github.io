@@ -1,16 +1,11 @@
 import React, { useState, useMemo } from 'react';
-import { Layers, ArrowUpRight, Filter } from 'lucide-react';
-import GenerativeQuantumCard from './GenerativeQuantumCard';
-import ProjectModal from './ProjectModal';
+import { Layers, Filter } from 'lucide-react';
 
 export default function ProjectsSection({ projects }) {
   if (!projects || !Array.isArray(projects) || projects.length === 0) return null;
 
   const [selectedCategory, setSelectedCategory] = useState('ALL');
-  const [activeProject, setActiveProject] = useState(null);
-  const [hoveredProjectId, setHoveredProjectId] = useState(null);
 
-  // Extract unique categories dynamically
   const categories = useMemo(() => {
     const set = new Set(['ALL']);
     projects.forEach((p) => {
@@ -19,46 +14,45 @@ export default function ProjectsSection({ projects }) {
     return Array.from(set);
   }, [projects]);
 
-  // Filter projects dynamically
   const filteredProjects = useMemo(() => {
     if (selectedCategory === 'ALL') return projects;
     return projects.filter((p) => p.category === selectedCategory);
   }, [projects, selectedCategory]);
 
   return (
-    <section id="projects" className="py-14 sm:py-16 relative z-10 px-4 sm:px-6 lg:px-8">
+    <section id="projects" className="py-16 sm:py-20 bg-transparent relative z-10 px-4 sm:px-6 lg:px-8 border-t border-slate-200/60">
       <div className="max-w-7xl mx-auto">
         
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 sm:gap-6 mb-8 sm:mb-10">
           <div>
-            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-cyan-950/70 border border-cyan-500/30 text-xs font-mono text-higgs-cyan mb-3">
-              <Layers className="w-3.5 h-3.5 text-higgs-cyan" />
-              <span>Projects</span>
+            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-sky-50 border border-sky-200 text-xs font-mono text-sky-600 font-semibold mb-3">
+              <Layers className="w-3.5 h-3.5" />
+              <span>Engineering Initiatives</span>
             </div>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-bold text-white leading-tight">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-bold text-slate-900 leading-tight">
               Featured Projects
             </h2>
           </div>
 
-          <p className="max-w-md text-sm sm:text-base text-slate-300 font-light">
-            Production-grade cloud automation, Kubernetes microservices, and backend engineering projects.
+          <p className="max-w-md text-sm sm:text-base text-slate-600 font-normal">
+            Production-grade cloud automation, Kubernetes microservices, and backend engineering.
           </p>
         </div>
 
         {/* Category Filters */}
         <div className="flex items-center gap-2 overflow-x-auto pb-3 mb-8 no-scrollbar scroll-smooth">
-          <Filter className="w-4 h-4 text-cyan-400 mr-1 flex-shrink-0" />
+          <Filter className="w-4 h-4 text-sky-500 mr-1 flex-shrink-0" />
           {categories.map((cat) => {
             const isActive = selectedCategory === cat;
             return (
               <button
                 key={cat}
                 onClick={() => setSelectedCategory(cat)}
-                className={`px-3.5 py-1.5 sm:px-4 sm:py-2 rounded-xl text-xs font-mono whitespace-nowrap transition-all cursor-pointer ${
+                className={`px-4 py-2 rounded-xl text-xs font-mono whitespace-nowrap transition-all cursor-pointer ${
                   isActive
-                    ? 'bg-gradient-to-r from-higgs-cyan to-higgs-neon text-quantum-dark font-bold shadow-[0_0_15px_rgba(0,245,255,0.4)]'
-                    : 'glass-panel text-slate-300 hover:text-white hover:border-cyan-500/40'
+                    ? 'bg-sky-500 text-white font-semibold shadow-md shadow-sky-500/25'
+                    : 'bg-slate-50 text-slate-700 hover:text-slate-900 border border-slate-200 hover:border-slate-300'
                 }`}
               >
                 {cat}
@@ -68,88 +62,81 @@ export default function ProjectsSection({ projects }) {
         </div>
 
         {/* Projects Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
-          {filteredProjects.map((project) => {
-            const isHovered = hoveredProjectId === project.id;
-            return (
-              <div
-                key={project.id}
-                onMouseEnter={() => setHoveredProjectId(project.id)}
-                onMouseLeave={() => setHoveredProjectId(null)}
-                onClick={() => setActiveProject(project)}
-                className="glass-panel p-4 sm:p-5 rounded-2xl sm:rounded-3xl border-cyan-500/20 hover:border-cyan-400/60 glass-card-interactive group cursor-pointer flex flex-col justify-between relative overflow-hidden"
-              >
-                {/* Visual Header */}
-                <div className="mb-4">
-                  <GenerativeQuantumCard
-                    quantumHash={project.quantumHash}
-                    energyFrequency={project.energyFrequency}
-                    title={project.title}
-                    category={project.category}
-                    isHovered={isHovered}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-7">
+          {filteredProjects.map((project) => (
+            <div
+              key={project.id}
+              className="bg-white rounded-3xl border border-slate-200/90 shadow-xs hover:shadow-xl hover:border-sky-300 transition-all duration-300 flex flex-col justify-between overflow-hidden group"
+            >
+              {/* Project Image Banner */}
+              {project.image && (
+                <div className="relative h-48 sm:h-52 w-full overflow-hidden bg-slate-100 border-b border-slate-100">
+                  <img
+                    src={project.image}
+                    alt={project.title}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-out"
+                    loading="lazy"
                   />
+                  <div className="absolute top-3 right-3 px-3 py-1 rounded-full bg-slate-900/85 backdrop-blur-md border border-slate-700/50 text-[10px] font-mono text-white font-medium shadow-sm">
+                    {project.category}
+                  </div>
                 </div>
+              )}
 
-                {/* Content */}
-                <div className="space-y-3 flex-1 flex flex-col justify-between">
-                  <div>
-                    <div className="text-[11px] font-mono text-higgs-cyan uppercase tracking-wider mb-1">
-                      {project.category}
-                    </div>
-                    <h3 className="text-base sm:text-lg font-display font-bold text-white group-hover:text-higgs-cyan transition-colors line-clamp-2">
-                      {project.title}
-                    </h3>
-                    <p className="text-xs sm:text-sm text-slate-300 mt-2 line-clamp-3 font-light leading-relaxed">
-                      {project.description}
+              {/* Card Body */}
+              <div className="p-5 sm:p-6 space-y-4 flex-1 flex flex-col justify-between">
+                <div>
+                  <div className="text-[11px] font-mono text-sky-600 font-semibold uppercase tracking-wider mb-1.5">
+                    {project.category}
+                  </div>
+                  <h3 className="text-lg font-display font-bold text-slate-900 group-hover:text-sky-600 transition-colors leading-snug">
+                    {project.title}
+                  </h3>
+                  <p className="text-xs sm:text-sm text-slate-600 mt-2 font-normal leading-relaxed">
+                    {project.description}
+                  </p>
+                  {project.deepDive && (
+                    <p className="text-xs text-slate-500 mt-2 font-normal leading-relaxed">
+                      {project.deepDive}
                     </p>
-                  </div>
-
-                  {/* Impact Metric & Tech Tags */}
-                  <div className="pt-3.5 border-t border-cyan-500/15 space-y-2.5">
-                    {project.impact && (
-                      <div className="text-xs font-mono text-emerald-400 bg-emerald-950/40 px-3 py-1 rounded-lg border border-emerald-500/30 flex items-center justify-between">
-                        <span className="text-[10px] text-slate-400">IMPACT:</span>
-                        <span className="font-semibold line-clamp-1">{project.impact}</span>
-                      </div>
-                    )}
-
-                    {project.techStack && Array.isArray(project.techStack) && (
-                      <div className="flex flex-wrap gap-1.5">
-                        {project.techStack.slice(0, 4).map((tech, tIdx) => (
-                          <span
-                            key={tIdx}
-                            className="px-2 py-0.5 rounded text-[10px] font-mono bg-quantum-surface/90 text-slate-300 border border-slate-700/60"
-                          >
-                            {tech}
-                          </span>
-                        ))}
-                        {project.techStack.length > 4 && (
-                          <span className="px-2 py-0.5 rounded text-[10px] font-mono bg-cyan-950/60 text-cyan-300 border border-cyan-500/30">
-                            +{project.techStack.length - 4}
-                          </span>
-                        )}
-                      </div>
-                    )}
-                  </div>
+                  )}
                 </div>
 
-                {/* Card Hover Trigger Arrow */}
-                <div className="mt-4 pt-3 border-t border-cyan-500/10 flex items-center justify-between text-xs font-mono text-slate-400 group-hover:text-higgs-cyan">
-                  <span>View Details</span>
-                  <ArrowUpRight className="w-4 h-4 transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                {/* Impact Metric & Tech Tags */}
+                <div className="pt-4 border-t border-slate-100 space-y-3">
+                  {project.impact && (
+                    <div className="text-xs font-mono text-emerald-800 bg-emerald-50 px-3 py-1.5 rounded-lg border border-emerald-200 flex items-center justify-between font-semibold">
+                      <span className="text-[10px] text-slate-500 font-normal">IMPACT:</span>
+                      <span>{project.impact}</span>
+                    </div>
+                  )}
+
+                  {project.techStack && Array.isArray(project.techStack) && (
+                    <div className="flex flex-wrap gap-1.5">
+                      {project.techStack.map((tech, tIdx) => (
+                        <span
+                          key={tIdx}
+                          className="px-2.5 py-1 rounded-md text-[11px] font-mono bg-slate-100 text-slate-700 border border-slate-200 font-medium"
+                        >
+                          {tech}
+                        </span>
+                      ))}
+                    </div>
+                  )}
+
+                  {/* Deployment Status */}
+                  <div className="pt-2 flex items-center justify-between text-[11px] font-mono text-slate-500">
+                    <div className="flex items-center gap-1.5">
+                      <span className="w-2 h-2 rounded-full bg-emerald-500 inline-block" />
+                      <span className="text-slate-600 font-medium">{project.environment || 'Enterprise Production'}</span>
+                    </div>
+                    <span className="text-[10px] text-slate-400 font-normal">TriByte Technologies</span>
+                  </div>
                 </div>
               </div>
-            );
-          })}
+            </div>
+          ))}
         </div>
-
-        {/* Deep Dive Modal */}
-        {activeProject && (
-          <ProjectModal
-            project={activeProject}
-            onClose={() => setActiveProject(null)}
-          />
-        )}
 
       </div>
     </section>

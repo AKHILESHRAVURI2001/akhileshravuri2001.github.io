@@ -4,118 +4,169 @@
 
 @layer base {
   :root {
-    --higgs-cyan: #00f5ff;
-    --quantum-purple: #a855f7;
-    --quantum-emerald: #10b981;
-    --quantum-dark: #030712;
+    --accent-blue: #2563eb;
+    --accent-indigo: #4f46e5;
+    --accent-emerald: #059669;
+    --bg-main: #f8fafc;
   }
 
   html {
-    color-scheme: dark;
+    color-scheme: light;
     scroll-behavior: smooth;
   }
 
   body {
-    background-color: #030712;
-    color: #f1f5f9;
-    font-family: 'Space Grotesk', system-ui, sans-serif;
+    background-color: #f8fafc;
+    color: #0f172a;
+    font-family: 'Space Grotesk', system-ui, -apple-system, sans-serif;
     overflow-x: hidden;
   }
 
-  /* Custom high-tech scrollbar */
+  /* Sleek modern light scrollbar */
   ::-webkit-scrollbar {
     width: 6px;
   }
   ::-webkit-scrollbar-track {
-    background: #030712;
+    background: #f1f5f9;
   }
   ::-webkit-scrollbar-thumb {
-    background: linear-gradient(180deg, #00f5ff, #a855f7);
+    background: #cbd5e1;
     border-radius: 3px;
   }
   ::-webkit-scrollbar-thumb:hover {
-    background: #00f5ff;
+    background: #94a3b8;
   }
 }
 
-/* Glassmorphism & Cyber Quantum HUD styling */
+/* Modern Minimalist Light Glass & Card Styling */
 .glass-panel {
-  background: rgba(7, 13, 30, 0.65);
+  background: rgba(255, 255, 255, 0.85);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(56, 189, 248, 0.18);
-  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.45);
+  border: 1px solid rgba(226, 232, 240, 0.9);
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.05), 0 1px 2px -1px rgba(0, 0, 0, 0.05);
 }
 
 .glass-panel-glow {
-  background: rgba(11, 19, 41, 0.75);
+  background: rgba(255, 255, 255, 0.95);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(0, 245, 255, 0.3);
-  box-shadow: 0 0 25px -5px rgba(0, 245, 255, 0.25), inset 0 0 15px rgba(0, 245, 255, 0.05);
-}
-
-.glass-panel-purple {
-  background: rgba(15, 10, 30, 0.75);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(168, 85, 247, 0.3);
-  box-shadow: 0 0 25px -5px rgba(168, 85, 247, 0.25), inset 0 0 15px rgba(168, 85, 247, 0.05);
+  border: 1px solid rgba(191, 219, 254, 0.8);
+  box-shadow: 0 4px 20px -2px rgba(37, 99, 235, 0.08);
 }
 
 .glass-card-interactive {
-  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .glass-card-interactive:hover {
-  transform: translateY(-4px) scale(1.01);
-  border-color: rgba(0, 245, 255, 0.5);
-  box-shadow: 0 12px 30px -10px rgba(0, 245, 255, 0.35);
+  transform: translateY(-3px);
+  border-color: rgba(59, 130, 246, 0.5);
+  box-shadow: 0 10px 25px -5px rgba(37, 99, 235, 0.1);
 }
 
-/* Cyber Grid Background Pattern */
-.bg-cyber-grid {
-  background-size: 40px 40px;
+/* Subtle Light Grid Pattern */
+.bg-grid-subtle {
+  background-size: 32px 32px;
   background-image: 
-    linear-gradient(to right, rgba(56, 189, 248, 0.05) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(56, 189, 248, 0.05) 1px, transparent 1px);
+    linear-gradient(to right, rgba(15, 23, 42, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(15, 23, 42, 0.03) 1px, transparent 1px);
 }
 
-.bg-radial-vignette {
-  background: radial-gradient(circle at 50% 50%, rgba(3, 7, 18, 0.2) 0%, rgba(3, 7, 18, 0.92) 100%);
+/* Very Light Smooth Ambient Background Animations */
+@keyframes ambientFloatSlow {
+  0%, 100% {
+    transform: translate(0px, 0px) scale(1);
+    opacity: 0.65;
+  }
+  50% {
+    transform: translate(35px, -30px) scale(1.08);
+    opacity: 0.95;
+  }
 }
 
-/* Holographic text glow */
-.text-glow-cyan {
-  text-shadow: 0 0 12px rgba(0, 245, 255, 0.6), 0 0 24px rgba(0, 245, 255, 0.3);
+@keyframes ambientFloatReverse {
+  0%, 100% {
+    transform: translate(0px, 0px) scale(1);
+    opacity: 0.55;
+  }
+  50% {
+    transform: translate(-35px, 30px) scale(1.12);
+    opacity: 0.85;
+  }
 }
 
-.text-glow-purple {
-  text-shadow: 0 0 12px rgba(168, 85, 247, 0.6), 0 0 24px rgba(168, 85, 247, 0.3);
+@keyframes ambientFloatCenter {
+  0%, 100% {
+    transform: translate(0px, 0px) scale(0.95);
+    opacity: 0.4;
+  }
+  50% {
+    transform: translate(20px, 15px) scale(1.05);
+    opacity: 0.7;
+  }
 }
 
-/* Scanline Overlay */
-.scanlines {
-  position: relative;
-  overflow: hidden;
-}
-.scanlines::after {
-  content: " ";
-  display: block;
-  position: absolute;
-  top: 0; left: 0; bottom: 0; right: 0;
-  background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%);
-  background-size: 100% 4px;
-  z-index: 2;
-  pointer-events: none;
-  opacity: 0.4;
+@keyframes heroBgPanZoom {
+  0% {
+    transform: scale(1.02) translate(0%, 0%);
+  }
+  50% {
+    transform: scale(1.08) translate(-1.5%, -1%);
+  }
+  100% {
+    transform: scale(1.02) translate(0%, 0%);
+  }
 }
 
-@keyframes scanlineAnim {
-  0% { transform: translateY(-100%); }
-  100% { transform: translateY(1000%); }
+@keyframes slowGridDrift {
+  0% {
+    background-position: 0px 0px;
+  }
+  100% {
+    background-position: 64px 64px;
+  }
 }
 
-.animate-scanline-bar {
-  animation: scanlineAnim 6s linear infinite;
+@keyframes floatOrbLight {
+  0%, 100% {
+    transform: translate(0px, 0px) scale(1);
+  }
+  33% {
+    transform: translate(40px, -35px) scale(1.1);
+  }
+  66% {
+    transform: translate(-30px, 20px) scale(0.92);
+  }
 }
+
+.animate-grid-drift {
+  animation: slowGridDrift 40s linear infinite;
+}
+
+.animate-orb-float {
+  animation: floatOrbLight 20s ease-in-out infinite;
+}
+
+.animate-ambient-1 {
+  animation: ambientFloatSlow 18s ease-in-out infinite;
+}
+
+.animate-ambient-2 {
+  animation: ambientFloatReverse 22s ease-in-out infinite;
+}
+
+.animate-ambient-3 {
+  animation: ambientFloatCenter 26s ease-in-out infinite;
+}
+
+.animate-hero-bg {
+  animation: heroBgPanZoom 28s ease-in-out infinite alternate;
+}
+
+.animate-gentle-pulse {
+  animation: gentlePulse 8s ease-in-out infinite;
+}
+
+
+
