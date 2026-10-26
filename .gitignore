@@ -40,4 +40,8 @@ Thumbs.db
 
 # Vite cache
 .vite/
-.eslintcache
+.eslintcache__pycache__/
+*.pyc
+.pytest_cache/
+venv/
+.venv/
