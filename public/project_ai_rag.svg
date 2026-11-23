@@ -1,0 +1,135 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 440" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#F8FAFC" />
+      <stop offset="50%" stop-color="#EFF6FF" />
+      <stop offset="100%" stop-color="#E0F2FE" />
+    </linearGradient>
+    <linearGradient id="platTop" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFFF" />
+      <stop offset="100%" stop-color="#E2E8F0" />
+    </linearGradient>
+    <linearGradient id="aiCore" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0284C7" />
+      <stop offset="100%" stop-color="#2563EB" />
+    </linearGradient>
+    <linearGradient id="cyanNode" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#38BDF8" />
+      <stop offset="100%" stop-color="#0284C7" />
+    </linearGradient>
+    <pattern id="isoGrid" width="32" height="32" patternUnits="userSpaceOnUse">
+      <path d="M 32 0 L 0 0 0 32" fill="none" stroke="#CBD5E1" stroke-width="0.7" stroke-opacity="0.45" />
+    </pattern>
+    <filter id="dropShadow" x="-15%" y="-15%" width="130%" height="140%">
+      <feDropShadow dx="0" dy="10" stdDeviation="12" flood-color="#0F172A" flood-opacity="0.1" />
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="800" height="440" fill="url(#bgGrad)" />
+  <rect width="800" height="440" fill="url(#isoGrid)" />
+
+  <!-- Subtle Radial Glow -->
+  <circle cx="400" cy="220" r="220" fill="#38BDF8" opacity="0.12" />
+
+  <!-- Main Isometric Platform Base -->
+  <g filter="url(#dropShadow)">
+    <!-- Platform Side Depth -->
+    <polygon points="400,382 690,235 690,252 400,400 110,252 110,235" fill="#94A3B8" />
+    <polygon points="400,382 690,235 690,252 400,400" fill="#64748B" />
+    <!-- Platform Top Surface -->
+    <polygon points="400,88 690,235 400,382 110,235" fill="url(#platTop)" stroke="#38BDF8" stroke-width="2" />
+    <!-- Inner Circuit Border -->
+    <polygon points="400,104 666,235 400,366 134,235" fill="none" stroke="#93C5FD" stroke-width="1.2" stroke-dasharray="6,6" />
+  </g>
+
+  <!-- Connecting Isometric Data Pipelines -->
+  <g stroke="#0284C7" stroke-width="2.5" fill="none" stroke-linecap="round">
+    <!-- Left to Center (Docs/URLs to RAG Core) -->
+    <path d="M 245 235 L 350 235" stroke-dasharray="5,5" />
+    <!-- Center to Top-Right (CRM Portal) -->
+    <path d="M 425 205 L 520 158" />
+    <!-- Center to Bottom-Right (WordPress Guide Platform) -->
+    <path d="M 425 255 L 520 302" />
+    <!-- Center to Top-Left (PostgreSQL / Firebase Vector Store) -->
+    <path d="M 375 205 L 285 158" />
+  </g>
+
+  <!-- Animated Data Pulses -->
+  <circle cx="295" cy="235" r="4.5" fill="#0284C7" />
+  <circle cx="475" cy="180" r="4.5" fill="#2563EB" />
+  <circle cx="475" cy="280" r="4.5" fill="#0EA5E9" />
+  <circle cx="330" cy="180" r="4.5" fill="#0284C7" />
+
+  <!-- ========================================================= -->
+  <!-- TOP-LEFT NODE: VECTOR DB & MEMORY (PostgreSQL / Firebase) -->
+  <!-- ========================================================= -->
+  <g transform="translate(230, 118)" filter="url(#dropShadow)">
+    <rect x="0" y="0" width="110" height="66" rx="12" fill="#FFFFFF" stroke="#38BDF8" stroke-width="2" />
+    <rect x="0" y="0" width="110" height="18" rx="12" fill="#0284C7" />
+    <text x="55" y="13" text-anchor="middle" font-family="monospace" font-size="9.5" font-weight="700" fill="#FFFFFF">VECTOR MEMORY</text>
+    <text x="55" y="38" text-anchor="middle" font-family="'Segoe UI', sans-serif" font-size="11.5" font-weight="800" fill="#0F172A">PostgreSQL</text>
+    <text x="55" y="54" text-anchor="middle" font-family="monospace" font-size="10" font-weight="600" fill="#0284C7">MySQL • Firebase</text>
+  </g>
+
+  <!-- ========================================================= -->
+  <!-- LEFT NODE: DOCUMENT & URL INGESTION                       -->
+  <!-- ========================================================= -->
+  <g transform="translate(135, 202)" filter="url(#dropShadow)">
+    <rect x="0" y="0" width="112" height="68" rx="12" fill="#FFFFFF" stroke="#38BDF8" stroke-width="2" />
+    <rect x="10" y="10" width="28" height="28" rx="7" fill="#E0F2FE" />
+    <path d="M20 17H28L32 21V31H20V17Z" fill="none" stroke="#0284C7" stroke-width="1.8" />
+    <text x="46" y="23" font-family="'Segoe UI', sans-serif" font-size="11" font-weight="800" fill="#0F172A">Ingestion</text>
+    <text x="46" y="36" font-family="monospace" font-size="9.5" font-weight="600" fill="#64748B">Docs &amp; URLs</text>
+    <rect x="10" y="46" width="92" height="12" rx="4" fill="#F1F5F9" />
+    <rect x="12" y="48" width="68" height="8" rx="3" fill="#38BDF8" />
+  </g>
+
+  <!-- ========================================================= -->
+  <!-- CENTER CORE: AI RAG ENGINE (GEMINI & OPENAI)              -->
+  <!-- ========================================================= -->
+  <g transform="translate(332, 178)" filter="url(#dropShadow)">
+    <!-- 3D Isometric Cube Base -->
+    <rect x="0" y="0" width="136" height="104" rx="18" fill="url(#aiCore)" stroke="#BAE6FD" stroke-width="2.5" />
+    <rect x="10" y="10" width="116" height="84" rx="12" fill="#0F172A" opacity="0.22" />
+
+    <!-- Neural Network Icon -->
+    <circle cx="48" cy="34" r="5" fill="#38BDF8" />
+    <circle cx="88" cy="34" r="5" fill="#38BDF8" />
+    <circle cx="68" cy="54" r="6" fill="#FFFFFF" />
+    <line x1="48" y1="34" x2="88" y2="34" stroke="#7DD3FC" stroke-width="2" />
+    <line x1="48" y1="34" x2="68" y2="54" stroke="#7DD3FC" stroke-width="2" />
+    <line x1="88" y1="34" x2="68" y2="54" stroke="#7DD3FC" stroke-width="2" />
+
+    <text x="68" y="76" text-anchor="middle" font-family="'Segoe UI', sans-serif" font-size="14" font-weight="800" fill="#FFFFFF" letter-spacing="0.5">AI RAG AGENT</text>
+    <text x="68" y="92" text-anchor="middle" font-family="monospace" font-size="10" font-weight="700" fill="#7DD3FC">Gemini • OpenAI</text>
+  </g>
+
+  <!-- ========================================================= -->
+  <!-- TOP-RIGHT NODE: CRM PORTAL & ADMIN DASHBOARD              -->
+  <!-- ========================================================= -->
+  <g transform="translate(505, 112)" filter="url(#dropShadow)">
+    <rect x="0" y="0" width="145" height="78" rx="12" fill="#FFFFFF" stroke="#2563EB" stroke-width="2" />
+    <rect x="0" y="0" width="145" height="20" rx="12" fill="#2563EB" />
+    <circle cx="14" cy="10" r="3" fill="#93C5FD" />
+    <circle cx="24" cy="10" r="3" fill="#93C5FD" />
+    <text x="80" y="14" text-anchor="middle" font-family="monospace" font-size="9.5" font-weight="700" fill="#FFFFFF">CRM ADMIN PORTAL</text>
+    <text x="14" y="40" font-family="'Segoe UI', sans-serif" font-size="12" font-weight="800" fill="#0F172A">React.js &amp; Node.js</text>
+    <text x="14" y="56" font-family="monospace" font-size="10" font-weight="600" fill="#475569">Leads • Users • AI Chat</text>
+    <rect x="14" y="64" width="116" height="6" rx="3" fill="#DBEAFE" />
+    <rect x="14" y="64" width="88" height="6" rx="3" fill="#2563EB" />
+  </g>
+
+  <!-- ========================================================= -->
+  <!-- BOTTOM-RIGHT NODE: WORDPRESS GUIDE PLATFORM               -->
+  <!-- ========================================================= -->
+  <g transform="translate(505, 256)" filter="url(#dropShadow)">
+    <rect x="0" y="0" width="145" height="76" rx="12" fill="#FFFFFF" stroke="#0EA5E9" stroke-width="2" />
+    <rect x="0" y="0" width="145" height="20" rx="12" fill="#0EA5E9" />
+    <text x="72" y="14" text-anchor="middle" font-family="monospace" font-size="9.5" font-weight="700" fill="#FFFFFF">GUIDE PLATFORM</text>
+    <text x="14" y="40" font-family="'Segoe UI', sans-serif" font-size="12" font-weight="800" fill="#0F172A">WordPress &amp; PHP</text>
+    <text x="14" y="56" font-family="monospace" font-size="10" font-weight="600" fill="#475569">Taxonomies • UI Tools</text>
+    <rect x="14" y="63" width="116" height="6" rx="3" fill="#E0F2FE" />
+    <rect x="14" y="63" width="96" height="6" rx="3" fill="#0EA5E9" />
+  </g>
+</svg>

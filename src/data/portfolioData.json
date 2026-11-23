@@ -3,10 +3,10 @@
     "name": "Akhilesh Ravuri",
     "firstName": "Akhilesh",
     "lastName": "Ravuri",
-    "title": "DevOps Engineer & Software Developer",
-    "tagline": "Building Reliable Systems. Delivering Scalable Solutions.",
-    "subtitle": "DevOps and Software Engineer with 4+ years of experience building and operating CI/CD pipelines, AWS cloud infrastructure, and full-stack applications.",
-    "bio": "DevOps and Software Engineer with around 4 years of experience building and operating CI/CD pipelines, AWS cloud infrastructure, and full-stack applications. Hands-on with Docker, Kubernetes, Jenkins, Terraform, and Ansible to deliver reliable, repeatable deployments — including cutting environment setup time by 80% through Terraform automation. Strong Python and PHP background across the LAMP stack, bridging development and operations to ship features and infrastructure changes with zero disruption.",
+    "title": "DevOps Engineer | Full-Stack Software Developer",
+    "tagline": "Building Reliable Cloud Platforms. Delivering Intelligent Full-Stack Solutions.",
+    "subtitle": "DevOps Engineer and Full-Stack Developer with 4 years of experience delivering secure, automated, cloud-native platforms on AWS and AI-integrated applications.",
+    "bio": "DevOps Engineer and Full-Stack Developer with 4 years of experience delivering secure, automated, cloud-native platforms on AWS. Builds CI/CD pipelines (Jenkins), provisions infrastructure with Terraform, runs containerized microservices on Docker and Kubernetes, and embeds quality and security with SonarQube. Develops end-to-end applications with Python, PHP, Node.js, React.js and MySQL, and uses AI-assisted development and LLM integration (RAG, Gemini, OpenAI) to ship new products quickly.",
     "email": "akhileshravuri2001@gmail.com",
     "phone": "+91 7095643856",
     "location": "Bengaluru, Karnataka, India",
@@ -18,8 +18,8 @@
     "badge": "Hi, I'm",
     "firstName": "Akhilesh",
     "lastName": "Ravuri",
-    "title": "DevOps Engineer & Software Developer",
-    "description": "4+ years operating AWS cloud environments, automating CI/CD release pipelines, orchestrating Kubernetes microservices, and engineering high-performance backend systems.",
+    "title": "DevOps Engineer | Full-Stack Software Developer",
+    "description": "4+ years delivering secure, automated, cloud-native platforms on AWS, provisioning infrastructure with Terraform, orchestrating microservices on Docker & Kubernetes, and building end-to-end applications with Python, PHP, Node.js, React.js, and AI RAG agents.",
     "ctaPrimary": {
       "label": "View My Projects",
       "href": "#projects"
@@ -35,19 +35,19 @@
   },
   "stats": [
     { "id": "stat-1", "value": "4+", "label": "Years Experience" },
-    { "id": "stat-2", "value": "80%", "label": "Setup Time Saved (IaC)" },
-    { "id": "stat-3", "value": "90%", "label": "Query Accuracy Boost" },
-    { "id": "stat-4", "value": "99.9%", "label": "Production Uptime" }
+    { "id": "stat-2", "value": "80%", "label": "Faster Setup with Terraform" },
+    { "id": "stat-3", "value": "90%", "label": "System Accuracy Improvement" },
+    { "id": "stat-4", "value": "K8s & AI", "label": "Microservices & RAG Platforms" }
   ],
   "about": {
     "tag": "About Me",
     "heading": "Building Better",
     "headingHighlight": "Solutions",
-    "description": "DevOps and Software Engineer with around 4 years of experience building and operating CI/CD pipelines, AWS cloud infrastructure, and full-stack applications.",
+    "description": "DevOps Engineer and Full-Stack Developer with 4 years of experience delivering secure, automated, cloud-native platforms on AWS.",
     "paragraphs": [
-      "I am a DevOps Engineer and Full-Stack Software Developer with around 4 years of hands-on experience building, automating, and scaling production web architectures and cloud systems.",
-      "I operate AWS environments end-to-end — from provisioning infrastructure with Terraform and Ansible to containerizing microservices with Docker, orchestrating clusters on Kubernetes, and keeping production systems healthy with Prometheus and Grafana proactive telemetry.",
-      "On the development side, I design and maintain robust backend APIs with PHP, Python, and MySQL, and build modern responsive frontends using React.js and Node.js. I bridge engineering and operations to ensure releases are automated, predictable, and zero-disruption."
+      "I am a DevOps Engineer and Full-Stack Developer with 4 years of hands-on experience delivering secure, automated, cloud-native platforms on AWS and full-stack web applications.",
+      "I build CI/CD pipelines with Jenkins and Git, provision repeatable infrastructure with Terraform (cutting client setup time by 80%), run containerized microservices on Docker and Kubernetes, enforce quality gates with SonarQube, and monitor production systems with Prometheus, Grafana, and AWS CloudWatch.",
+      "On the application side, I develop end-to-end systems using Python, PHP, Node.js, React.js, MySQL, and PostgreSQL, and leverage AI-assisted development and LLM integration (RAG agents, Gemini API, OpenAI API) to ship high-accuracy products rapidly."
     ],
     "location": "Bengaluru, Karnataka, India",
     "email": "akhileshravuri2001@gmail.com",
@@ -57,240 +57,293 @@
     "cards": [
       {
         "id": "card-1",
-        "title": "DevOps & Cloud (AWS)",
-        "desc": "EC2, S3, RDS, VPC, ECS, Lambda, Terraform, Ansible, CI/CD",
+        "title": "Cloud, IaC & Monitoring",
+        "desc": "AWS (EC2, ECS, Lambda, S3, RDS, VPC, CloudFront), Terraform, Prometheus, Grafana",
         "icon": "Cloud"
       },
       {
         "id": "card-2",
-        "title": "Containers & Kubernetes",
-        "desc": "Docker, Kubernetes clusters, Microservices architecture, Auto-scaling",
+        "title": "Containers & CI/CD",
+        "desc": "Docker, Kubernetes (AWS / kOps), Jenkins, Git, GitHub, SonarQube",
         "icon": "Box"
       },
       {
         "id": "card-3",
-        "title": "Monitoring & Observability",
-        "desc": "Prometheus, Grafana dashboards, CloudWatch alarms, Incident management",
-        "icon": "Activity"
+        "title": "Full-Stack Web Engineering",
+        "desc": "Python, PHP, JavaScript, React.js, Node.js, MySQL, PostgreSQL, Firebase, REST APIs",
+        "icon": "Code"
       },
       {
         "id": "card-4",
-        "title": "Full-Stack Development",
-        "desc": "PHP, Python, MySQL, React.js, Node.js, REST APIs, Linux",
-        "icon": "Code"
+        "title": "AI, LLMs & Quality Testing",
+        "desc": "RAG Agents, Gemini API, OpenAI API, Playwright E2E, Postman, SonarQube",
+        "icon": "Activity"
       }
     ]
   },
   "experience": [
     {
       "company": "TriByte Technologies Private Limited",
-      "role": "Software Developer – DevOps & Web Development",
+      "role": "Software Developer (DevOps and Full-Stack Engineer)",
       "location": "Bengaluru, Karnataka, India",
       "period": "Sep 2022 – Present",
       "current": true,
       "badge": "Current Role",
-      "summary": "Own CI/CD pipelines, AWS infrastructure across three environments (Staging, UAT, Production), and full-stack feature delivery for a monolith-to-microservices migration.",
+      "keyImpact": "80% faster client environment setup with Terraform | 90% improvement in system accuracy",
+      "summary": "Delivering secure, automated, cloud-native AWS infrastructure, Jenkins CI/CD release pipelines, Kubernetes microservices migrations, and full-stack & AI-assisted web applications.",
+      "categories": [
+        {
+          "title": "CI/CD and Release Automation",
+          "items": [
+            "Built and maintained Jenkins CI/CD pipelines with Git, automating build, static analysis, and release workflows.",
+            "Enforced SonarQube quality gates before release, catching quality issues early and reducing failed deployments.",
+            "Automated monolith deployments with Jenkins and Python scripting, cutting manual release effort.",
+            "Coordinated end-to-end release lifecycle with development teams, accelerating build-to-production turnaround and resolving deployment issues to minimize downtime."
+          ]
+        },
+        {
+          "title": "Cloud Infrastructure and Infrastructure as Code",
+          "items": [
+            "Operated AWS compute and container services (EC2, ECS, Lambda) for secure, highly available application workloads.",
+            "Managed AWS storage, database, and messaging services (S3, RDS, SQS, SNS) supporting application backends and notifications.",
+            "Configured VPC networking, Route 53, CloudFront, API Gateway, and Load Balancer to manage network access, DNS, SSL/TLS, load distribution, and content and API delivery.",
+            "Provisioned infrastructure for new client environments with Terraform, ensuring repeatable and consistent deployments and reducing setup time by 80%."
+          ]
+        },
+        {
+          "title": "Containers, Microservices & Monitoring",
+          "items": [
+            "Containerized services with Docker and ran microservices on Kubernetes (AWS), covering cluster management, scaling, and service discovery.",
+            "Advanced the migration of a monolithic application to a microservices architecture, improving scalability and deployment independence.",
+            "Monitored production systems with Prometheus and Grafana dashboards and AWS CloudWatch to track availability and performance.",
+            "Managed production incidents from investigation through resolution and optimized performance to maintain system reliability."
+          ]
+        },
+        {
+          "title": "Application Development, Testing & AI Integration",
+          "items": [
+            "Developed and maintained backend and web application features using PHP, Python, MySQL, Node.js, React.js, HTML, CSS, JavaScript, and jQuery on Linux and Apache; implemented query validation and correction logic that improved system accuracy by 90%.",
+            "Created Playwright test cases and used Postman to validate application features and APIs.",
+            "Leveraged AI-assisted development to build standalone and new platform-based applications faster and with better output quality."
+          ]
+        }
+      ],
       "responsibilities": [
-        "Built and managed CI/CD pipelines using Jenkins, integrated with Azure Repos for version control and SonarQube for automated code quality gating, reducing failed deployments.",
-        "Operated AWS cloud environments (Staging, UAT, Production) using EC2, S3, RDS, VPC, ECS, Lambda, SQS, CloudFront, and CloudWatch.",
-        "Automated deployments for monolithic applications in staging using Jenkins, Ansible, and Python scripting, reducing manual release effort.",
-        "Deployed and managed microservices in UAT using Docker and Kubernetes on AWS, handling cluster management, scaling, and service discovery.",
-        "Monitored production systems using Prometheus and Grafana, handled incidents, and optimized performance to maintain 99.9% high availability.",
-        "Provisioned infrastructure for new client environments using Terraform, ensuring repeatable and consistent deployments, reducing setup time by 80%.",
-        "Implemented high-efficiency query validation and correction logic, improving system accuracy by 90% and eliminating downstream data errors.",
-        "Participated in the end-to-end migration of a monolithic application to a microservices architecture with Docker and Kubernetes.",
-        "Built and maintained backend services using PHP, Python, and MySQL on Apache, and enhanced application features using Node.js and React.js."
+        "Built and maintained Jenkins CI/CD pipelines with Git, enforcing SonarQube quality gates before release and automating monolith & microservice deployments with Python scripting.",
+        "Operated AWS compute, container, storage, database, and networking services (EC2, ECS, Lambda, S3, RDS, SQS, SNS, VPC, Route 53, CloudFront, API Gateway, Load Balancer).",
+        "Provisioned infrastructure for new client environments with Terraform, ensuring repeatable and consistent deployments and reducing setup time by 80%.",
+        "Containerized services with Docker and ran microservices on Kubernetes (AWS), advancing the migration of a monolithic application to a microservices architecture.",
+        "Monitored production systems with Prometheus and Grafana dashboards and AWS CloudWatch, managing incidents from investigation through resolution.",
+        "Developed backend and web application features using PHP, Python, MySQL, Node.js, React.js, JavaScript, and jQuery on Linux and Apache, improving system accuracy by 90%.",
+        "Created Playwright test cases and Postman API validations, and leveraged AI-assisted development and LLM APIs to ship applications faster."
       ],
       "technologies": [
-        "AWS (EC2, S3, RDS, VPC, ECS, Lambda)",
+        "AWS (EC2, ECS, Lambda, S3, RDS, SQS, SNS, VPC, Route 53, CloudFront, API Gateway, ALB)",
+        "Terraform",
         "Kubernetes",
         "Docker",
-        "Terraform",
-        "Ansible",
         "Jenkins",
-        "Azure Repos",
         "SonarQube",
         "Prometheus",
         "Grafana",
         "Python",
         "PHP",
-        "MySQL",
-        "Node.js",
         "React.js",
-        "Linux"
+        "Node.js",
+        "JavaScript",
+        "MySQL",
+        "PostgreSQL",
+        "Firebase",
+        "Playwright",
+        "Postman",
+        "Linux",
+        "Apache"
       ]
     }
   ],
   "skills": {
     "tag": "Technical Skills",
     "title": "Technologies & Tools by Category",
-    "description": "Core competencies across cloud infrastructure, CI/CD automation, container orchestration, monitoring, and backend engineering.",
+    "description": "Core competencies across AWS cloud infrastructure, CI/CD automation, Kubernetes orchestration, full-stack web engineering, and AI/LLM integration.",
     "categories": [
       {
-        "id": "cloud-aws",
-        "name": "Cloud Infrastructure (AWS)",
+        "id": "cloud-iac",
+        "name": "Cloud, IaC & Monitoring",
         "icon": "Cloud",
         "items": [
-          { "name": "AWS EC2" },
-          { "name": "AWS S3" },
-          { "name": "AWS RDS" },
-          { "name": "AWS VPC & Networking" },
-          { "name": "AWS Lambda" },
-          { "name": "API Gateway" },
-          { "name": "CloudFront CDN" },
-          { "name": "AWS SQS" },
-          { "name": "AWS ECS" },
-          { "name": "CloudWatch" }
-        ]
-      },
-      {
-        "id": "cicd-iac",
-        "name": "CI/CD & Infrastructure as Code",
-        "icon": "GitBranch",
-        "items": [
+          { "name": "AWS (EC2, ECS, Lambda, S3, RDS)" },
+          { "name": "VPC, Route 53, CloudFront, ALB, API GW" },
+          { "name": "AWS SQS, SNS & CloudWatch" },
           { "name": "Terraform" },
-          { "name": "Ansible" },
-          { "name": "Jenkins" },
-          { "name": "Azure DevOps Repos" },
-          { "name": "SonarQube" },
-          { "name": "Git & GitHub" }
+          { "name": "Prometheus" },
+          { "name": "Grafana" }
         ]
       },
       {
-        "id": "containers-k8s",
-        "name": "Containers & Orchestration",
+        "id": "cicd-containers",
+        "name": "CI/CD, Containers & Orchestration",
         "icon": "Box",
         "items": [
           { "name": "Docker" },
-          { "name": "Kubernetes (K8s)" },
-          { "name": "Microservices Architecture" },
-          { "name": "Ingress & Service Discovery" },
-          { "name": "Horizontal Pod Autoscaling" }
+          { "name": "Kubernetes (AWS / kOps)" },
+          { "name": "Jenkins CI/CD" },
+          { "name": "Git & GitHub" },
+          { "name": "SonarQube" }
         ]
       },
       {
-        "id": "observability",
-        "name": "Monitoring & Observability",
-        "icon": "Activity",
-        "items": [
-          { "name": "Prometheus" },
-          { "name": "Grafana" },
-          { "name": "Alertmanager" },
-          { "name": "AWS CloudWatch Alarms" },
-          { "name": "Linux (RHEL/Ubuntu)" }
-        ]
-      },
-      {
-        "id": "fullstack",
-        "name": "Programming & Web Frameworks",
+        "id": "programming-web",
+        "name": "Programming & Web Stack",
         "icon": "Code",
         "items": [
           { "name": "Python" },
           { "name": "PHP" },
-          { "name": "MySQL" },
-          { "name": "Node.js" },
+          { "name": "JavaScript (ES6+)" },
           { "name": "React.js" },
-          { "name": "JavaScript" },
-          { "name": "HTML5 & CSS3" },
-          { "name": "Apache Server" }
+          { "name": "Node.js" },
+          { "name": "HTML5, CSS3 & jQuery" },
+          { "name": "REST APIs" }
+        ]
+      },
+      {
+        "id": "ai-testing",
+        "name": "AI, LLMs, Testing & Security",
+        "icon": "Activity",
+        "items": [
+          { "name": "RAG Agents" },
+          { "name": "Google Gemini API" },
+          { "name": "OpenAI API" },
+          { "name": "AI-Assisted Development" },
+          { "name": "Playwright" },
+          { "name": "Postman" }
+        ]
+      },
+      {
+        "id": "databases-os",
+        "name": "Databases, OS & Web Server",
+        "icon": "GitBranch",
+        "items": [
+          { "name": "MySQL" },
+          { "name": "PostgreSQL" },
+          { "name": "Firebase" },
+          { "name": "Linux" },
+          { "name": "Apache HTTP Server" },
+          { "name": "WordPress" }
         ]
       }
     ]
   },
   "projects": [
     {
-      "id": "proj-cicd-iac",
-      "title": "Automated CI/CD & Terraform Infrastructure Pipeline",
-      "category": "DevOps & Cloud Automation",
-      "image": "./project_cicd.jpg",
-      "featured": true,
-      "environment": "Enterprise Production",
-      "description": "Architected an automated infrastructure provisioning and continuous integration pipeline utilizing Terraform, Jenkins, and Azure Repos with SonarQube quality validation.",
-      "deepDive": "Configured modular Terraform state backends on AWS S3 with DynamoDB locking. Integrated Jenkins multi-branch pipelines executing automated linting, unit testing, and SonarQube security gating prior to automated deployment to staging and production.",
-      "techStack": ["Terraform", "Jenkins", "AWS S3", "Azure Repos", "SonarQube", "Ansible"],
-      "impact": "Slashed client environment setup time by 80% with repeatable IaC.",
-      "metrics": [
-        { "label": "Setup Time Saved", "value": "80%" },
-        { "label": "Infrastructure as Code", "value": "100% Terraform" }
-      ]
-    },
-    {
-      "id": "proj-microservices",
-      "title": "Monolith to Microservices Kubernetes Migration",
-      "category": "Cloud Architecture & Containers",
+      "id": "proj-cloud-lms",
+      "title": "Cloud-Based Learning Management Platform",
+      "category": "Cloud, DevOps & Microservices",
       "image": "./project_k8s.jpg",
       "featured": true,
       "environment": "Enterprise Production",
-      "description": "Participated end-to-end in migrating a monolithic application to a microservices architecture — containerizing services with Docker and deploying to Kubernetes on AWS.",
-      "deepDive": "Authored optimized multi-stage Dockerfiles reducing image size by 65%. Designed Kubernetes Deployment manifests, Ingress controllers, horizontal pod autoscalers (HPA), and config maps with rolling deployment strategies.",
-      "techStack": ["Docker", "Kubernetes", "AWS EKS/EC2", "Jenkins", "Linux", "Python"],
-      "impact": "Decoupled deployment lifecycles and enabled zero-disruption legacy cutover.",
+      "description": "Drove DevOps and engineering efforts for a cloud-based learning management platform serving educational institutions with digital course content and assessments.",
+      "deepDive": "Executed the end-to-end migration of the monolith to microservices, containerizing services with Docker and deploying on Kubernetes while preserving functionality and minimizing cutover disruption.",
+      "highlights": [
+        "Drove DevOps and engineering efforts for a cloud-based learning management platform serving educational institutions with digital course content and assessments.",
+        "Executed the end-to-end migration of the monolith to microservices, containerizing services with Docker and deploying on Kubernetes while preserving functionality and minimizing cutover disruption.",
+        "Migrated the legacy codebase to the updated microservices version, coordinating with the development team to preserve functionality and minimize disruption during cutover."
+      ],
+      "techStack": [
+        "AWS",
+        "Jenkins",
+        "SonarQube",
+        "Terraform",
+        "Docker",
+        "Kubernetes",
+        "Prometheus",
+        "Grafana",
+        "Python",
+        "PHP",
+        "MySQL"
+      ],
+      "impact": "End-to-end monolith-to-Kubernetes migration with zero cutover disruption.",
       "metrics": [
-        { "label": "Downtime during cutover", "value": "0 sec" },
-        { "label": "Image Size Optimization", "value": "-65%" }
+        { "label": "Architecture", "value": "Microservices on K8s" },
+        { "label": "Provisioning", "value": "Terraform IaC (-80%)" }
       ]
     },
     {
-      "id": "proj-observability",
-      "title": "Production Monitoring & Observability Grid",
-      "category": "DevOps & Monitoring",
+      "id": "proj-ai-rag-crm",
+      "title": "AI RAG Chatbot, CRM Portal & WordPress Guide Platform",
+      "category": "AI / LLM & Full-Stack Engineering",
+      "image": "./project_monitoring.jpg",
+      "featured": true,
+      "environment": "Production Cloud",
+      "description": "Created a single-page AI RAG chatbot where users supply documents, files, and URLs for context-aware answers, integrated with a full-stack CRM portal and a custom WordPress guide platform.",
+      "deepDive": "Architected the full system independently (frontend, APIs, database, LLM integration) covering document/URL ingestion, semantic retrieval, and conversation memory, and managed hosting and deployment on AWS using DevOps practices.",
+      "highlights": [
+        "Created a single-page AI chatbot where users supply documents, files, and URLs that a RAG agent uses for context-aware answers, covering ingestion, retrieval, and conversation memory.",
+        "Architected the full system independently (frontend, APIs, database, LLM integration) and managed hosting and deployment on AWS and open platforms using DevOps practices.",
+        "Engineered a CRM portal with lead and customer record management and an admin dashboard for managing users and data, integrated with the RAG chatbot for AI-assisted customer interactions.",
+        "Designed and created a WordPress guide platform as the sole developer, implementing a notification system, custom taxonomies, client profiles, a news section, interactive tools, and reusable UI components."
+      ],
+      "techStack": [
+        "React.js",
+        "Node.js",
+        "Gemini API",
+        "OpenAI API",
+        "MySQL",
+        "PostgreSQL",
+        "Firebase",
+        "WordPress",
+        "PHP",
+        "AWS"
+      ],
+      "impact": "Full-stack RAG agent, CRM portal & custom guide platform architected end-to-end.",
+      "metrics": [
+        { "label": "LLM Engine", "value": "Gemini & OpenAI RAG" },
+        { "label": "Delivery", "value": "End-to-End Full-Stack" }
+      ]
+    },
+    {
+      "id": "proj-blood-bank-cicd",
+      "title": "Blood Bank Application: Design and CI/CD Pipeline",
+      "category": "Full-Stack & Kubernetes CI/CD",
       "image": "./project_cicd.jpg",
       "featured": true,
-      "environment": "Enterprise Production",
-      "description": "Set up Prometheus and Grafana dashboards for production systems, enabling proactive incident detection and performance optimization to maintain high availability.",
-      "deepDive": "Metrics scraped by Prometheus across services, visualized in Grafana dashboards with alerting for anomaly detection across container nodes, database clusters, and web servers.",
-      "techStack": ["Prometheus", "Grafana", "AWS CloudWatch", "Python", "Alertmanager"],
-      "impact": "Maintained 99.9% high availability through proactive incident detection.",
+      "environment": "Kubernetes Cluster (kOps)",
+      "description": "Designed and delivered a Blood Bank web application using PHP, MySQL, and Apache, and established its complete CI/CD workflow from source commit to Kubernetes deployment.",
+      "deepDive": "Configured a Jenkins pipeline with Stage View covering Git checkout, SonarQube scanner static analysis, and Docker image builds through the Docker pipeline plugin, deploying to a Kubernetes cluster provisioned with kOps.",
+      "highlights": [
+        "Designed and delivered a Blood Bank web application using PHP, MySQL, and Apache, and established its complete CI/CD workflow from source commit to Kubernetes deployment.",
+        "Configured a Jenkins pipeline with Stage View covering Git checkout, SonarQube scanner analysis, and Docker image builds through the Docker pipeline plugin.",
+        "Added SonarQube static analysis to catch quality and security issues before deployment.",
+        "Deployed the containerized application to a Kubernetes cluster provisioned with kOps for automated, repeatable delivery."
+      ],
+      "techStack": [
+        "PHP",
+        "MySQL",
+        "Apache",
+        "Git",
+        "Jenkins",
+        "SonarQube",
+        "Docker",
+        "Kubernetes (kOps)"
+      ],
+      "impact": "Automated commit-to-Kubernetes release pipeline with SonarQube quality gates.",
       "metrics": [
-        { "label": "System Availability", "value": "99.9%" },
-        { "label": "Incident Resolution", "value": "Proactive" }
-      ]
-    },
-    {
-      "id": "proj-query-engine",
-      "title": "High-Efficiency SQL Query Validation Engine",
-      "category": "Software Development",
-      "image": "./project_k8s.jpg",
-      "featured": false,
-      "environment": "Enterprise Production",
-      "description": "Implemented query validation and correction logic for a PHP/MySQL backend on Apache, improving system accuracy by 90%.",
-      "deepDive": "Backend validation layer intercepts and corrects malformed queries before execution against MySQL, with logging for auditability and reduced downstream data errors.",
-      "techStack": ["PHP", "Python", "MySQL", "Apache", "Linux"],
-      "impact": "Improved backend system accuracy by 90% and eliminated downstream data errors.",
-      "metrics": [
-        { "label": "System Accuracy", "value": "90% Boost" },
-        { "label": "Downstream Errors", "value": "-95%" }
-      ]
-    },
-    {
-      "id": "proj-react-node",
-      "title": "React & Node.js Feature Development",
-      "category": "Software Development",
-      "image": "./project_cicd.jpg",
-      "featured": false,
-      "environment": "Enterprise Production",
-      "description": "Built and enhanced application features using Node.js and React.js, leveraging AI-assisted development workflows to accelerate iteration and improve code quality.",
-      "deepDive": "Component-driven React frontend consuming REST APIs backed by Node.js services with clean state management and rapid iteration cycles.",
-      "techStack": ["React.js", "Node.js", "JavaScript", "REST APIs", "Tailwind CSS"],
-      "impact": "Delivered faster feature rollouts through consistent review and AI-assisted workflows.",
-      "metrics": [
-        { "label": "Delivery Velocity", "value": "Accelerated" },
-        { "label": "Code Review Standard", "value": "Passed" }
+        { "label": "Cluster Ops", "value": "Kubernetes (kOps)" },
+        { "label": "Quality Gate", "value": "SonarQube Static Scan" }
       ]
     }
   ],
   "education": [
     {
-      "degree": "Bachelor of Technology (B.Tech) – Electrical & Electronics Engineering",
-      "institution": "Vaagdevi Institute of Technology and Science, Proddatur",
+      "degree": "Bachelor of Technology (B.Tech) – Electrical and Electronics Engineering",
+      "institution": "Vaagdevi Institute of Technology and Science",
       "duration": "2019 – 2022",
       "score": "79.2%",
       "gradeBadge": "First Class with Distinction",
       "highlights": "Comprehensive focus on control systems, power electronics, logic design, and computing fundamentals."
     },
     {
-      "degree": "Diploma – Electrical & Electronics Engineering",
-      "institution": "Govt Polytechnic, Proddatur",
+      "degree": "Diploma – Electrical and Electronics Engineering",
+      "institution": "Government Polytechnic",
       "duration": "2016 – 2019",
       "score": "86.6%",
       "gradeBadge": "First Class with Distinction",
@@ -299,7 +352,7 @@
   ],
   "cta": {
     "heading": "Let's Build Something Amazing Together",
-    "subheading": "I'm always open to discussing full-time DevOps & Web Development opportunities, collaborations, or technical challenges. Feel free to reach out!",
+    "subheading": "I'm always open to discussing full-time DevOps & Full-Stack Engineering opportunities, collaborations, or technical challenges. Feel free to reach out!",
     "buttonText": "Get In Touch",
     "buttonHref": "mailto:akhileshravuri2001@gmail.com",
     "quote": "Better Code Brighter Future"
