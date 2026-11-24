@@ -1,156 +1,109 @@
 import React from 'react';
-import { Mail, Phone, MessageSquare, Linkedin, Github, ExternalLink, MessageCircle } from 'lucide-react';
+import { motion } from 'framer-motion';
+import { Mail, Phone, MessageSquare, Linkedin, Github } from 'lucide-react';
+import { Reveal, Stagger, StaggerItem } from './Reveal';
 
-export default function ContactSection({ contact, social }) {
+function WhatsAppIcon({ className = '' }) {
+  return (
+    <svg viewBox="0 0 24 24" fill="currentColor" className={className} aria-hidden="true">
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z" />
+    </svg>
+  );
+}
+
+export default function ContactSection({ contact }) {
   if (!contact) return null;
 
-  const whatsappNumber = '917095643856';
+  const phoneClean = contact.phone.replace(/\s+/g, '');
   const whatsappMessage = encodeURIComponent(
     'Hi Akhilesh, I saw your portfolio and would like to connect with you regarding an opportunity!'
   );
-  const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${whatsappMessage}`;
+
+  const titleWords = (contact.title || "Let's Connect").trim().split(/\s+/);
+  const titleTail = titleWords.pop();
+  const titleHead = titleWords.join(' ');
+
+  const links = [
+    {
+      label: 'WhatsApp',
+      href: `https://wa.me/917095643856?text=${whatsappMessage}`,
+      icon: WhatsAppIcon,
+      tone: 'bg-[#25D366] shadow-[#25D366]/30',
+      external: true,
+    },
+    {
+      label: 'Call',
+      href: `tel:${phoneClean}`,
+      icon: Phone,
+      tone: 'bg-indigo-500 shadow-indigo-500/30',
+    },
+    {
+      label: 'Email',
+      href: `mailto:${contact.email}?subject=Opportunity%20Discussion`,
+      icon: Mail,
+      tone: 'bg-blue-600 shadow-blue-600/30',
+    },
+    {
+      label: 'LinkedIn',
+      href: 'https://www.linkedin.com/in/akhileshravuri',
+      icon: Linkedin,
+      tone: 'bg-sky-600 shadow-sky-600/30',
+      external: true,
+    },
+    {
+      label: 'GitHub',
+      href: 'https://github.com/AKHILESHRAVURI2001',
+      icon: Github,
+      tone: 'bg-slate-900 shadow-slate-900/30',
+      external: true,
+    },
+  ];
 
   return (
-    <section id="contact" className="py-14 sm:py-16 relative z-10 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-5xl mx-auto">
-        
-        {/* Section Header */}
-        <div className="text-center max-w-2xl mx-auto mb-10 sm:mb-12">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white border border-slate-200 text-xs font-mono text-blue-600 shadow-sm mb-3">
+    <section id="contact" className="py-16 sm:py-24 relative z-10 px-4 sm:px-6 lg:px-8">
+      <div className="max-w-4xl mx-auto text-center">
+        <Reveal>
+          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white border border-slate-200 text-xs font-mono text-blue-600 shadow-sm mb-4">
             <MessageSquare className="w-3.5 h-3.5" />
             <span>Contact</span>
           </div>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-bold text-slate-900 leading-tight">
-            {contact.title || "Let's Connect"}
+          <h2 className="text-3xl sm:text-4xl md:text-6xl font-display font-extrabold text-slate-900 leading-tight tracking-tight">
+            {titleHead}{titleHead && ' '}
+            <span className="bg-gradient-to-r from-sky-500 via-blue-600 to-indigo-500 bg-clip-text text-transparent">
+              {titleTail}
+            </span>
           </h2>
-          <p className="mt-3 text-slate-600 font-normal text-sm sm:text-base">
-            Feel free to reach out directly via WhatsApp, Email, or Phone for job opportunities and technical discussions.
+          <p className="mt-4 text-slate-600 text-sm sm:text-base">
+            Open to DevOps and Full-Stack roles. Reach out through any of these.
           </p>
-        </div>
+        </Reveal>
 
-        {/* Action Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
-          
-          {/* 1. WHATSAPP CARD */}
-          <a
-            href={whatsappUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="p-5 sm:p-8 rounded-2xl bg-white border border-slate-200/90 shadow-sm hover:shadow-md hover:border-emerald-400 transition-all group flex flex-col justify-between"
-          >
-            <div className="flex items-start justify-between gap-4 mb-4 sm:mb-6">
-              <div className="p-3.5 sm:p-4 rounded-2xl bg-emerald-50 text-emerald-600 border border-emerald-200">
-                <MessageCircle className="w-6 h-6 sm:w-7 sm:h-7" />
-              </div>
-              <span className="px-3 py-1 rounded-full text-xs font-mono bg-emerald-50 text-emerald-700 border border-emerald-200 font-semibold flex items-center gap-1.5">
-                <span className="w-2 h-2 rounded-full bg-emerald-500 inline-block" />
-                <span>Instant Chat</span>
-              </span>
-            </div>
-
-            <div>
-              <div className="text-xs font-mono text-emerald-700 font-semibold uppercase tracking-wider mb-1">
-                WhatsApp Messenger
-              </div>
-              <h3 className="text-lg sm:text-2xl font-display font-bold text-slate-900 group-hover:text-emerald-700 transition-colors">
-                Chat on WhatsApp
-              </h3>
-              <p className="text-xs sm:text-sm text-slate-600 mt-2 font-normal leading-relaxed">
-                Connect instantly on WhatsApp at <strong>+91 7095643856</strong> for inquiries or scheduling calls.
-              </p>
-            </div>
-
-            <div className="mt-5 pt-4 border-t border-slate-100 flex items-center justify-between text-xs font-mono font-semibold text-emerald-700">
-              <span>START WHATSAPP CHAT</span>
-              <ExternalLink className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-            </div>
-          </a>
-
-          {/* 2. DIRECT EMAIL CARD */}
-          <a
-            href={`mailto:${contact.email}?subject=Opportunity%20Discussion`}
-            className="p-5 sm:p-8 rounded-2xl bg-white border border-slate-200/90 shadow-sm hover:shadow-md hover:border-blue-400 transition-all group flex flex-col justify-between"
-          >
-            <div className="flex items-start justify-between gap-4 mb-4 sm:mb-6">
-              <div className="p-3.5 sm:p-4 rounded-2xl bg-blue-50 text-blue-600 border border-blue-200">
-                <Mail className="w-6 h-6 sm:w-7 sm:h-7" />
-              </div>
-              <span className="px-3 py-1 rounded-full text-xs font-mono bg-slate-100 text-slate-700 border border-slate-200 font-medium">
-                Direct Email
-              </span>
-            </div>
-
-            <div>
-              <div className="text-xs font-mono text-blue-700 font-semibold uppercase tracking-wider mb-1">
-                Email Address
-              </div>
-              <h3 className="text-base sm:text-2xl font-display font-bold text-slate-900 group-hover:text-blue-600 transition-colors break-all sm:break-normal">
-                {contact.email}
-              </h3>
-              <p className="text-xs sm:text-sm text-slate-600 mt-2 font-normal leading-relaxed">
-                Send job descriptions, interview invites, or technical requirements directly to my inbox.
-              </p>
-            </div>
-
-            <div className="mt-5 pt-4 border-t border-slate-100 flex items-center justify-between text-xs font-mono font-semibold text-blue-600">
-              <span>COMPOSE EMAIL</span>
-              <ExternalLink className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-            </div>
-          </a>
-
-          {/* 3. DIRECT PHONE CALL CARD */}
-          <a
-            href={`tel:${contact.phone.replace(/\s+/g, '')}`}
-            className="p-5 sm:p-6 rounded-2xl bg-white border border-slate-200/90 shadow-sm hover:shadow-md hover:border-blue-300 transition-all group flex items-center justify-between gap-4"
-          >
-            <div className="flex items-center gap-3.5">
-              <div className="p-3 sm:p-3.5 rounded-2xl bg-slate-100 text-blue-600 border border-slate-200">
-                <Phone className="w-5 h-5" />
-              </div>
-              <div>
-                <div className="text-xs font-mono text-slate-500">Direct Phone</div>
-                <div className="text-sm sm:text-lg font-mono font-semibold text-slate-900 group-hover:text-blue-600 transition-colors">
-                  {contact.phone}
-                </div>
-              </div>
-            </div>
-            <ExternalLink className="w-4 h-4 text-slate-400 group-hover:text-blue-600 transition-colors" />
-          </a>
-
-          {/* 4. LINKEDIN & GITHUB PROFILES CARD */}
-          <div className="p-5 sm:p-6 rounded-2xl bg-white border border-slate-200/90 shadow-sm flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3">
-            <div className="flex items-center gap-2.5 flex-wrap">
-              <a
-                href="https://www.linkedin.com/in/akhileshravuri"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex-1 sm:flex-none flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl text-xs font-mono font-semibold text-white bg-blue-600 hover:bg-blue-700 shadow-sm transition-all"
+        <Stagger className="mt-10 sm:mt-12 flex flex-wrap justify-center gap-5 sm:gap-8" stagger={0.08}>
+          {links.map(({ label, href, icon: Icon, tone, external }) => (
+            <StaggerItem key={label}>
+              <motion.a
+                href={href}
+                target={external ? '_blank' : undefined}
+                rel={external ? 'noopener noreferrer' : undefined}
+                aria-label={label}
+                title={label}
+                whileHover={{ y: -6 }}
+                whileTap={{ scale: 0.92 }}
+                className="group flex flex-col items-center gap-3 cursor-pointer"
               >
-                <Linkedin className="w-4 h-4" />
-                <span>LinkedIn</span>
-              </a>
-
-              <a
-                href="https://github.com/AKHILESHRAVURI2001"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex-1 sm:flex-none flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl text-xs font-mono font-semibold text-white bg-slate-900 hover:bg-slate-800 shadow-sm transition-all"
-              >
-                <Github className="w-4 h-4" />
-                <span>GitHub</span>
-              </a>
-            </div>
-
-            <div className="text-left sm:text-right text-xs font-mono text-slate-500 pt-1 sm:pt-0">
-              <span>Bengaluru, India</span>
-            </div>
-          </div>
-
-        </div>
-
+                <span
+                  className={`w-16 h-16 sm:w-20 sm:h-20 rounded-2xl ${tone} text-white flex items-center justify-center shadow-lg group-hover:shadow-2xl transition-shadow`}
+                >
+                  <Icon className="w-7 h-7 sm:w-8 sm:h-8 group-hover:scale-110 transition-transform" />
+                </span>
+                <span className="text-xs sm:text-sm font-semibold text-slate-700 group-hover:text-slate-900">
+                  {label}
+                </span>
+              </motion.a>
+            </StaggerItem>
+          ))}
+        </Stagger>
       </div>
     </section>
   );
 }
-
-

@@ -10,6 +10,8 @@ import EducationSection from './components/EducationSection';
 import ContactSection from './components/ContactSection';
 import Footer from './components/Footer';
 import FloatingContactDock from './components/FloatingContactDock';
+import CursorGlow from './components/CursorGlow';
+import { Reveal } from './components/Reveal';
 
 export default function App() {
   const [data] = useState(portfolioData || {});
@@ -40,17 +42,20 @@ export default function App() {
         <div className="absolute top-[88%] left-[20%] w-[500px] h-[500px] bg-emerald-400/30 rounded-full blur-[130px] animate-ambient-1" />
       </div>
 
+      {/* Cursor-reactive glow, grid reveal and trail */}
+      <CursorGlow />
+
       {/* Navigation */}
       <Navbar profile={profile} />
 
       {/* Main Content Sections */}
       <main className="relative z-10">
         {hero && <HeroSection hero={hero} profile={profile} stats={stats} />}
-        {about && <AboutSection about={about} profile={profile} />}
-        {skills && <SkillsSection skills={skills} />}
-        {experience && <ExperienceSection experience={experience} />}
+        {about && <Reveal><AboutSection about={about} profile={profile} /></Reveal>}
+        {skills && <Reveal><SkillsSection skills={skills} /></Reveal>}
+        {experience && <Reveal><ExperienceSection experience={experience} /></Reveal>}
         {projects && <ProjectsSection projects={projects} />}
-        {education && <EducationSection education={education} />}
+        {education && <Reveal><EducationSection education={education} /></Reveal>}
         {contact && <ContactSection contact={contact} social={social} />}
       </main>
 

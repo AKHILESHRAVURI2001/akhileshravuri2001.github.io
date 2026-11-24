@@ -12,6 +12,8 @@ import {
   Cpu,
   Layers
 } from 'lucide-react';
+import { motion } from 'framer-motion';
+import { Stagger, StaggerItem } from './Reveal';
 
 export default function HeroSection({ hero, profile, stats }) {
   const [activePipelineStep, setActivePipelineStep] = useState(1);
@@ -48,8 +50,13 @@ export default function HeroSection({ hero, profile, stats }) {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 items-center">
           
           {/* 1. Left Hero Column: Headline, Bio & CTAs */}
-          <div className="lg:col-span-6 space-y-6 sm:space-y-7">
-            
+          <motion.div
+            className="lg:col-span-6 space-y-6 sm:space-y-7"
+            initial={{ opacity: 0, x: -40 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+          >
+
             {/* Live Availability Status Tag */}
             <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-slate-900/90 border border-slate-700/80 text-xs font-mono shadow-sm">
               <span className="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse" />
@@ -120,11 +127,19 @@ export default function HeroSection({ hero, profile, stats }) {
               <span className="px-2 py-0.5 rounded bg-slate-900 border border-slate-800 text-sky-400">PHP/Python</span>
             </div>
 
-          </div>
+          </motion.div>
 
           {/* 2. Right Hero Column: Interactive DevOps Cloud Cockpit Terminal */}
-          <div className="lg:col-span-6 relative">
-            <div className="relative rounded-3xl bg-gradient-to-b from-slate-900 via-[#0a0f1d] to-slate-950 border border-slate-800 shadow-2xl shadow-sky-500/10 overflow-hidden">
+          <motion.div
+            className="lg:col-span-6 relative"
+            initial={{ opacity: 0, x: 40, scale: 0.97 }}
+            animate={{ opacity: 1, x: 0, scale: 1 }}
+            transition={{ duration: 0.9, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
+          >
+            <motion.div
+              animate={{ y: [0, -8, 0] }}
+              transition={{ duration: 6, repeat: Infinity, ease: 'easeInOut' }}
+              className="relative rounded-3xl bg-gradient-to-b from-slate-900 via-[#0a0f1d] to-slate-950 border border-slate-800 shadow-2xl shadow-sky-500/10 overflow-hidden">
               
               {/* Terminal Window Header */}
               <div className="px-5 py-3.5 bg-slate-950/80 border-b border-slate-800 flex items-center justify-between">
@@ -224,37 +239,37 @@ export default function HeroSection({ hero, profile, stats }) {
                 </div>
 
               </div>
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
 
         </div>
 
         {/* 3. Bottom Hero Stats Row */}
-        <div className="mt-14 sm:mt-16 pt-8 border-t border-slate-800/80 grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
-          <div className="p-4 sm:p-5 rounded-2xl bg-slate-900/60 border border-slate-800/90 shadow-sm space-y-1">
+        <Stagger className="mt-14 sm:mt-16 pt-8 border-t border-slate-800/80 grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6" delay={0.2}>
+          <StaggerItem className="p-4 sm:p-5 rounded-2xl bg-slate-900/60 border border-slate-800/90 shadow-sm space-y-1">
             <div className="text-2xl sm:text-3xl font-display font-extrabold text-sky-400">4+ Years</div>
             <div className="text-xs font-mono text-slate-300 font-semibold">DevOps & Web Development</div>
             <div className="text-[11px] text-slate-500">TriByte Technologies & Cloud Systems</div>
-          </div>
+          </StaggerItem>
 
-          <div className="p-4 sm:p-5 rounded-2xl bg-slate-900/60 border border-slate-800/90 shadow-sm space-y-1">
+          <StaggerItem className="p-4 sm:p-5 rounded-2xl bg-slate-900/60 border border-slate-800/90 shadow-sm space-y-1">
             <div className="text-2xl sm:text-3xl font-display font-extrabold text-sky-400">80% Saved</div>
             <div className="text-xs font-mono text-slate-300 font-semibold">IaC Environment Setup</div>
             <div className="text-[11px] text-slate-500">Terraform & Ansible Automation</div>
-          </div>
+          </StaggerItem>
 
-          <div className="p-4 sm:p-5 rounded-2xl bg-slate-900/60 border border-slate-800/90 shadow-sm space-y-1">
+          <StaggerItem className="p-4 sm:p-5 rounded-2xl bg-slate-900/60 border border-slate-800/90 shadow-sm space-y-1">
             <div className="text-2xl sm:text-3xl font-display font-extrabold text-emerald-400">90% Boost</div>
             <div className="text-xs font-mono text-slate-300 font-semibold">Query Validation Accuracy</div>
             <div className="text-[11px] text-slate-500">Zero Downstream Error Pipeline</div>
-          </div>
+          </StaggerItem>
 
-          <div className="p-4 sm:p-5 rounded-2xl bg-slate-900/60 border border-slate-800/90 shadow-sm space-y-1">
+          <StaggerItem className="p-4 sm:p-5 rounded-2xl bg-slate-900/60 border border-slate-800/90 shadow-sm space-y-1">
             <div className="text-2xl sm:text-3xl font-display font-extrabold text-sky-400">99.9% Uptime</div>
             <div className="text-xs font-mono text-slate-300 font-semibold">High Availability Operations</div>
             <div className="text-[11px] text-slate-500">Prometheus & Grafana Proactive Telemetry</div>
-          </div>
-        </div>
+          </StaggerItem>
+        </Stagger>
 
       </div>
     </section>

@@ -271,7 +271,7 @@
       "id": "proj-ai-rag-crm",
       "title": "AI RAG Chatbot, CRM Portal & WordPress Guide Platform",
       "category": "AI / LLM & Full-Stack Engineering",
-      "image": "./project_monitoring.jpg",
+      "image": "./project_ai_rag.svg",
       "featured": true,
       "environment": "Production Cloud",
       "description": "Created a single-page AI RAG chatbot where users supply documents, files, and URLs for context-aware answers, integrated with a full-stack CRM portal and a custom WordPress guide platform.",
