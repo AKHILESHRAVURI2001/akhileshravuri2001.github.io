@@ -50,7 +50,7 @@ export default function Footer({ profile, social }) {
               key={idx}
               href={item.url}
               target="_blank"
-              rel="noopener noreferrer"
+              rel="me noopener noreferrer"
               aria-label={item.name}
               className="w-8 h-8 rounded-lg bg-slate-900 border border-slate-800 flex items-center justify-center text-slate-400 hover:text-white hover:border-sky-400 hover:bg-sky-500/10 transition-all"
             >
