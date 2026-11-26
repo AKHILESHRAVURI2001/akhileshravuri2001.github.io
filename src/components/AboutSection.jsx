@@ -64,7 +64,11 @@ export default function AboutSection({ about, profile }) {
             <div className="relative w-full max-w-[300px] sm:max-w-xs rounded-3xl overflow-hidden border border-slate-200/90 shadow-xl bg-slate-50 group">
               <img
                 src={about?.photo || profile?.photo || './akhilesh_profile.png'}
-                alt={profile?.name || 'Akhilesh Ravuri'}
+                alt={`${profile?.name || 'Akhilesh Ravuri'}, DevOps Engineer and Full-Stack Developer in Bengaluru`}
+                width="800"
+                height="800"
+                loading="lazy"
+                decoding="async"
                 className="w-full h-auto aspect-square object-cover object-top group-hover:scale-105 transition-transform duration-500 ease-out"
               />
               

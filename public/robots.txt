@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://akhileshravuri2001.github.io/sitemap.xml

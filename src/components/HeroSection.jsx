@@ -34,7 +34,10 @@ export default function HeroSection({ hero, profile, stats }) {
       <div className="absolute inset-0 pointer-events-none overflow-hidden z-0">
         <img
           src="./devops_hero.jpg"
-          alt="DevOps Cloud Architecture Texture"
+          alt=""
+          aria-hidden="true"
+          fetchpriority="high"
+          decoding="async"
           className="w-full h-full object-cover object-center opacity-[0.30] sm:opacity-[0.38] mix-blend-screen animate-hero-bg select-none will-change-transform"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-[#050811] via-[#050811]/35 to-[#050811]/75" />

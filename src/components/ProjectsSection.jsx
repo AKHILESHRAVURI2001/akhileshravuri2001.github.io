@@ -40,8 +40,9 @@ const ProjectCard = React.forwardRef(function ProjectCard({ project, accent, ind
             <div className="relative h-52 overflow-hidden bg-slate-50">
               <img
                 src={project.image}
-                alt={project.title}
+                alt={`${project.title} – project by Akhilesh Ravuri`}
                 loading="lazy"
+                decoding="async"
                 className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-110"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-white via-white/10 to-transparent" />
